@@ -11,6 +11,37 @@ article
 [Beat Detection Using JavaScript and the Web Audio API](http://joesul.li/van/beat-detection-using-web-audio/).
 It is a very easy algorithm which retrieves the beats as BPM of a given AudioBuffer.
 
+## Usage
+
+The `web-audio-beat-detector` module is available on
+[npm](https://www.npmjs.com/package/web-audio-beat-detector) and can be installed as usual.
+
+```shell
+npm install web-audio-beat-detector
+```
+
+You can then import its only public function `analyze()` like this:
+
+```js
+import { analyze } from 'web-audio-beat-detector';
+```
+
+The `analyze()` function expects an `AudioBuffer` as its only parameter and it returns a `Promise`
+which eventually resolves with the assumed BPM of that buffer as a number. An example usage might
+look like this:
+
+```js
+analyze(audioBuffer)
+    .then((bpm) => {
+        // the bpm could be analyzed
+    })
+    .catch((err) => {
+        // something went wrong
+    });
+```
+
+## Acknowledgement
+
 A more comprehensive implemetation has been done by [José M. Pérez](https://jmperezperez.com). It
 comes with an UI to search for tracks on Spotify which can then be analyzed. He also wrote a blog
 post
