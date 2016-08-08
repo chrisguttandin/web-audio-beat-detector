@@ -4,7 +4,7 @@ const base64ToArrayBuffer = (encodedData) => {
     var decodedData,
         uint8Array;
 
-    decodedData = atob(encodedData.replace(/\s/g, '')); // eslint-disable-line no-undef
+    decodedData = atob(encodedData.replace(/\s/g, ''));
     uint8Array = new Uint8Array(decodedData.length);
 
     Array.prototype.forEach.call(uint8Array, (value, index) => {
@@ -15,7 +15,7 @@ const base64ToArrayBuffer = (encodedData) => {
 }
 
 export const loadFixtureAsAudioBuffer = (fixture, callback) => {
-    var request = new XMLHttpRequest(); // eslint-disable-line no-undef
+    var request = new XMLHttpRequest();
 
     request.onerror = () => callback('request-failed');
     request.onload = (event) => {
