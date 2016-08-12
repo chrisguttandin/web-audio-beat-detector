@@ -65,8 +65,8 @@ const countIntervalsBetweenNearbyPeaks = (peaks) => {
 
             if (!foundInterval) {
                 intervalCounts.push({
-                    interval,
-                    count: 1
+                    count: 1,
+                    interval
                 });
             }
         }
@@ -122,8 +122,8 @@ const groupNeighborsByTempo = (intervals, sampleRate) => {
 
             if (!foundTempo) {
                 tempoCounts.push({
-                    tempo: theoreticalTempo,
-                    count: intervalCount.count
+                    count: intervalCount.count,
+                    tempo: theoreticalTempo
                 });
             }
         });
