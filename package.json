@@ -33,7 +33,7 @@
     "karma-browserify": "^5.0.5",
     "karma-chrome-launcher": "^1.0.1",
     "karma-firefox-launcher": "^1.0.0",
-    "karma-leche": "0.0.7",
+    "karma-leche": "0.0.8",
     "karma-mocha": "^1.0.1",
     "karma-sauce-launcher": "^1.0.0",
     "karma-sinon-chai": "^1.2.0",
