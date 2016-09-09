@@ -23,7 +23,7 @@
   "devDependencies": {
     "babel-eslint": "^6.0.4",
     "chai": "^3.5.0",
-    "eslint-config-holy-grail": "^8.0.0",
+    "eslint-config-holy-grail": "^9.0.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-githooks": "^0.6.0",
