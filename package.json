@@ -21,7 +21,7 @@
   },
   "description": "A beat detection utility which is using the Web Audio API.",
   "devDependencies": {
-    "babel-eslint": "^6.0.4",
+    "babel-eslint": "^7.0.0",
     "chai": "^3.5.0",
     "eslint-config-holy-grail": "^9.0.0",
     "grunt": "^1.0.1",
