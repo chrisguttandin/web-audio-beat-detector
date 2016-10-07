@@ -12,7 +12,7 @@ const base64ToArrayBuffer = (encodedData) => {
     });
 
     return uint8Array.buffer;
-}
+};
 
 export const loadFixtureAsAudioBuffer = (fixture, callback) => {
     var request = new XMLHttpRequest();
