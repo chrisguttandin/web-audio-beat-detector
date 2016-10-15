@@ -12,12 +12,12 @@ module.exports = function (config) {
                     included: false,
                     pattern: 'src/**/*.js',
                     served: false,
-                    watched: true,
+                    watched: true
                 }, {
                     included: false,
                     pattern: 'test/fixtures/**',
                     served: true,
-                    watched: true,
+                    watched: true
                 },
                 'test/integration/**/*.js'
             ],
