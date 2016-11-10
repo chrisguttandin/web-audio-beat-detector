@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.8.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
     "standardized-audio-context": "^3.0.1"
   },
   "description": "A beat detection utility which is using the Web Audio API.",
