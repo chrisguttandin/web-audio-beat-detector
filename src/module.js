@@ -23,19 +23,16 @@ export const analyze = (audioBuffer) => {
     return offlineAudioContext
         .startRendering()
         .then((renderedBuffer) => {
-            var groups,
-                intervals,
-                peaks = [],
-                threshold = INITIAL_THRESHOLD;
+            let peaks = [];
+            let threshold = INITIAL_THRESHOLD;
 
             while (peaks.length < MINUMUM_NUMBER_OF_PEAKS && threshold >= MINIMUM_THRESHOLD) {
                 peaks = getPeaksAtThreshold(renderedBuffer.getChannelData(0), threshold, renderedBuffer.sampleRate);
                 threshold -= 0.05;
             }
 
-            intervals = countIntervalsBetweenNearbyPeaks(peaks);
-
-            groups = groupNeighborsByTempo(intervals, renderedBuffer.sampleRate);
+            const intervals = countIntervalsBetweenNearbyPeaks(peaks);
+            const groups = groupNeighborsByTempo(intervals, renderedBuffer.sampleRate);
 
             groups.sort((a, b) => b.count - a.count);
 
@@ -44,16 +41,13 @@ export const analyze = (audioBuffer) => {
 };
 
 const countIntervalsBetweenNearbyPeaks = (peaks) => {
-    var intervalCounts = [];
+    const intervalCounts = [];
 
     peaks.forEach((peak, index) => {
         for (let i = 0, length = Math.min(peaks.length - index, 10); i < length; i += 1) {
-            let foundInterval,
-                interval;
+            const interval = peaks[index + i] - peak;
 
-            interval = peaks[index + i] - peak;
-
-            foundInterval = intervalCounts.some((intervalCount) => {
+            const foundInterval = intervalCounts.some((intervalCount) => {
                 if (intervalCount.interval === interval) {
                     intervalCount.count += 1;
 
@@ -76,7 +70,7 @@ const countIntervalsBetweenNearbyPeaks = (peaks) => {
 };
 
 const getPeaksAtThreshold = (data, threshold, sampleRate) => {
-    var peaks = [];
+    const peaks = [];
 
     for (let i = 0, length = data.length; i < length; i += 1) {
         if (data[i] > threshold) {
@@ -91,16 +85,13 @@ const getPeaksAtThreshold = (data, threshold, sampleRate) => {
 };
 
 const groupNeighborsByTempo = (intervals, sampleRate) => {
-    var tempoCounts = [];
+    const tempoCounts = [];
 
     intervals
         .filter((intervalCount) => (intervalCount.interval !== 0))
         .forEach((intervalCount) => {
-            var foundTempo,
-                theoreticalTempo;
-
             // Convert an interval to tempo
-            theoreticalTempo = 60 / (intervalCount.interval / sampleRate);
+            let theoreticalTempo = 60 / (intervalCount.interval / sampleRate);
 
             // Adjust the tempo to fit within the 90-180 BPM range
             while (theoreticalTempo < 90) {
@@ -110,7 +101,7 @@ const groupNeighborsByTempo = (intervals, sampleRate) => {
                 theoreticalTempo /= 2;
             }
 
-            foundTempo = tempoCounts.some((tempoCount) => {
+            const foundTempo = tempoCounts.some((tempoCount) => {
                 if (tempoCount.tempo === theoreticalTempo) {
                     tempoCount.count += intervalCount.count;
 
