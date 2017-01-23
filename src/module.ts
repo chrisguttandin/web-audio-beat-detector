@@ -4,42 +4,6 @@ const INITIAL_THRESHOLD = 0.9;
 const MINUMUM_NUMBER_OF_PEAKS = 30;
 const MINIMUM_THRESHOLD = 0.3;
 
-export const analyze = (audioBuffer) => {
-    const offlineAudioContext = new OfflineAudioContext(audioBuffer.numberOfChannels, audioBuffer.length, audioBuffer.sampleRate);
-    const biquadFilter = offlineAudioContext.createBiquadFilter();
-    const bufferSourceNode = offlineAudioContext.createBufferSource();
-
-    biquadFilter.frequency.value = 200;
-    biquadFilter.type = 'lowpass';
-
-    bufferSourceNode.buffer = audioBuffer;
-
-    bufferSourceNode
-        .connect(biquadFilter)
-        .connect(offlineAudioContext.destination);
-
-    bufferSourceNode.start(0);
-
-    return offlineAudioContext
-        .startRendering()
-        .then((renderedBuffer) => {
-            let peaks = [];
-            let threshold = INITIAL_THRESHOLD;
-
-            while (peaks.length < MINUMUM_NUMBER_OF_PEAKS && threshold >= MINIMUM_THRESHOLD) {
-                peaks = getPeaksAtThreshold(renderedBuffer.getChannelData(0), threshold, renderedBuffer.sampleRate);
-                threshold -= 0.05;
-            }
-
-            const intervals = countIntervalsBetweenNearbyPeaks(peaks);
-            const groups = groupNeighborsByTempo(intervals, renderedBuffer.sampleRate);
-
-            groups.sort((a, b) => b.count - a.count);
-
-            return Math.round(groups[0].tempo);
-        });
-};
-
 const countIntervalsBetweenNearbyPeaks = (peaks) => {
     const intervalCounts = [];
 
@@ -120,4 +84,41 @@ const groupNeighborsByTempo = (intervals, sampleRate) => {
         });
 
     return tempoCounts;
+};
+
+export const analyze = (audioBuffer) => {
+    const offlineAudioContext = new OfflineAudioContext(audioBuffer.numberOfChannels, audioBuffer.length, audioBuffer.sampleRate);
+    const biquadFilter = offlineAudioContext.createBiquadFilter();
+    const bufferSourceNode = offlineAudioContext.createBufferSource();
+
+    biquadFilter.frequency.value = 200;
+    biquadFilter.type = 'lowpass';
+
+    bufferSourceNode.buffer = audioBuffer;
+
+    // @todo Remove this ugly hack again when possible.
+    (<any> bufferSourceNode
+        .connect(biquadFilter))
+        .connect(offlineAudioContext.destination);
+
+    bufferSourceNode.start(0);
+
+    return offlineAudioContext
+        .startRendering()
+        .then((renderedBuffer) => {
+            let peaks = [];
+            let threshold = INITIAL_THRESHOLD;
+
+            while (peaks.length < MINUMUM_NUMBER_OF_PEAKS && threshold >= MINIMUM_THRESHOLD) {
+                peaks = getPeaksAtThreshold(renderedBuffer.getChannelData(0), threshold, renderedBuffer.sampleRate);
+                threshold -= 0.05;
+            }
+
+            const intervals = countIntervalsBetweenNearbyPeaks(peaks);
+            const groups = groupNeighborsByTempo(intervals, renderedBuffer.sampleRate);
+
+            groups.sort((a, b) => b.count - a.count);
+
+            return Math.round(groups[0].tempo);
+        });
 };

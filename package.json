@@ -1,54 +1,55 @@
 {
   "author": "Christoph Guttandin",
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "plugins": [
-            "transform-es2015-modules-commonjs"
-          ]
-        }
-      ]
-    ]
-  },
   "bugs": {
     "url": "https://github.com/chrisguttandin/web-audio-beat-detector/issues"
   },
   "dependencies": {
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.8.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.1.1",
     "standardized-audio-context": "^4.0.0"
   },
   "description": "A beat detection utility which is using the Web Audio API.",
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
+    "babel-preset-es2015": "^6.22.0",
     "chai": "^3.5.0",
     "eslint-config-holy-grail": "^14.0.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
     "grunt-karma": "^2.0.0",
+    "grunt-sh": "^0.1.4",
+    "grunt-tslint": "^4.0.0",
     "gruntify-eslint": "^3.0.0",
-    "husky": "^0.12.0",
+    "husky": "^0.13.0",
     "karma": "^1.1.2",
-    "karma-browserify": "^5.0.5",
     "karma-chrome-launcher": "^2.0.0",
     "karma-firefox-launcher": "^1.0.0",
     "karma-leche": "0.0.8",
     "karma-mocha": "^1.0.1",
     "karma-sauce-launcher": "^1.0.0",
     "karma-sinon-chai": "^1.2.0",
+    "karma-webpack": "^2.0.1",
     "load-grunt-config": "^0.19.2",
-    "lolex": "^1.5.2",
     "mocha": "^3.0.0",
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
-    "watchify": "^3.7.0"
+    "ts-loader": "^2.0.0",
+    "tslint-config-holy-grail": "^5.0.1",
+    "typescript": "^2.1.5",
+    "webpack": "^2.2.0"
   },
+  "files": [
+    "build/es5/",
+    "build/es2015/",
+    "src/"
+  ],
   "homepage": "https://github.com/chrisguttandin/web-audio-beat-detector",
+  "jsnext:main": "build/es2015/module.js",
   "license": "MIT",
-  "main": "src/module.js",
+  "main": "build/es5/bundle.js",
   "name": "web-audio-beat-detector",
   "repository": {
     "type": "git",
@@ -56,7 +57,9 @@
   },
   "scripts": {
     "precommit": "grunt lint",
+    "prepublish": "grunt build",
     "test": "grunt lint && grunt test"
   },
+  "types": "build/es2015/module.d.ts",
   "version": "0.0.5"
 }

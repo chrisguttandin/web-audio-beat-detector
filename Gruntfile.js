@@ -1,5 +1,3 @@
-'use strict';
-
 const loadGruntConfig = require('load-grunt-config');
 
 module.exports = (grunt) => {
