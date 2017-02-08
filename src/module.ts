@@ -1,4 +1,4 @@
-import { OfflineAudioContext } from 'standardized-audio-context';
+import { OfflineAudioContext, isSupported } from 'standardized-audio-context';
 
 const INITIAL_THRESHOLD = 0.9;
 const MINUMUM_NUMBER_OF_PEAKS = 30;
@@ -122,3 +122,5 @@ export const analyze = (audioBuffer) => {
             return Math.round(groups[0].tempo);
         });
 };
+
+export { isSupported };
