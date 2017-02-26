@@ -8,7 +8,9 @@ const countIntervalsBetweenNearbyPeaks = (peaks) => {
     const intervalCounts = [];
 
     peaks.forEach((peak, index) => {
-        for (let i = 0, length = Math.min(peaks.length - index, 10); i < length; i += 1) {
+        const length = Math.min(peaks.length - index, 10);
+
+        for (let i = 0; i < length; i += 1) {
             const interval = peaks[index + i] - peak;
 
             const foundInterval = intervalCounts.some((intervalCount) => {
@@ -36,7 +38,9 @@ const countIntervalsBetweenNearbyPeaks = (peaks) => {
 const getPeaksAtThreshold = (data, threshold, sampleRate) => {
     const peaks = [];
 
-    for (let i = 0, length = data.length; i < length; i += 1) {
+    const length = data.length;
+
+    for (let i = 0; i < length; i += 1) {
         if (data[i] > threshold) {
             peaks.push(i);
 
