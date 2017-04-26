@@ -4,7 +4,7 @@
     "url": "https://github.com/chrisguttandin/web-audio-beat-detector/issues"
   },
   "dependencies": {
-    "standardized-audio-context": "^5.0.0"
+    "standardized-audio-context": "^6.0.0"
   },
   "description": "A beat detection utility which is using the Web Audio API.",
   "devDependencies": {
