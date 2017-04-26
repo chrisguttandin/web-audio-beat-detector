@@ -47,9 +47,9 @@
     "src/"
   ],
   "homepage": "https://github.com/chrisguttandin/web-audio-beat-detector",
-  "jsnext:main": "build/es2015/module.js",
   "license": "MIT",
   "main": "build/es5/bundle.js",
+  "module": "build/es2015/module.js",
   "name": "web-audio-beat-detector",
   "repository": {
     "type": "git",
