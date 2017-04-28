@@ -113,7 +113,9 @@ const computeTempoBuckets = (audioBuffer: AudioBuffer) => {
             let peaks: number[] = [];
             let threshold = INITIAL_THRESHOLD;
 
-            const channelData = renderedBuffer.getChannelData(0);
+            const channelData = new Float32Array(renderedBuffer.length);
+
+            renderedBuffer.copyFromChannel(channelData, 0);
 
             while (peaks.length < MINUMUM_NUMBER_OF_PEAKS && threshold >= MINIMUM_THRESHOLD) {
                 peaks = getPeaksAtThreshold(channelData, threshold, renderedBuffer.sampleRate);
