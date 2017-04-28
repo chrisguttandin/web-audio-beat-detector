@@ -36,13 +36,13 @@ const countIntervalsBetweenNearbyPeaks = (peaks: number[]) => {
     return intervalCounts;
 };
 
-const getPeaksAtThreshold = (data: Float32Array, threshold: number, sampleRate: number) => {
+const getPeaksAtThreshold = (channelData: Float32Array, threshold: number, sampleRate: number) => {
     const peaks = [];
 
-    const length = data.length;
+    const length = channelData.length;
 
     for (let i = 0; i < length; i += 1) {
-        if (data[i] > threshold) {
+        if (channelData[i] > threshold) {
             peaks.push(i);
 
             // Skip forward 1/4s to get past this peak.
@@ -114,10 +114,10 @@ export const analyze = (audioBuffer: AudioBuffer) => {
             let peaks: number[] = [];
             let threshold = INITIAL_THRESHOLD;
 
-            const data = renderedBuffer.getChannelData(0);
+            const channelData = renderedBuffer.getChannelData(0);
 
             while (peaks.length < MINUMUM_NUMBER_OF_PEAKS && threshold >= MINIMUM_THRESHOLD) {
-                peaks = getPeaksAtThreshold(data, threshold, renderedBuffer.sampleRate);
+                peaks = getPeaksAtThreshold(channelData, threshold, renderedBuffer.sampleRate);
                 threshold -= 0.05;
             }
 
