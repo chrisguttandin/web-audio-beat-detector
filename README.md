@@ -20,20 +20,40 @@ The `web-audio-beat-detector` module is available on
 npm install web-audio-beat-detector
 ```
 
-You can then import its only public function `analyze()` like this:
+You can then import its public function `analyze()` like this:
 
 ```js
 import { analyze } from 'web-audio-beat-detector';
 ```
 
 The `analyze()` function expects an `AudioBuffer` as its only parameter and it returns a `Promise`
-which eventually resolves with the assumed BPM of that buffer as a number. An example usage might
-look like this:
+which eventually resolves with the tempo of that buffer as a number. An example usage might look
+like this:
 
 ```js
 analyze(audioBuffer)
-    .then((bpm) => {
-        // the bpm could be analyzed
+    .then((tempo) => {
+        // the tempo could be analyzed
+    })
+    .catch((err) => {
+        // something went wrong
+    });
+```
+
+Additionally you can also import the `guess()` function like this:
+
+```js
+import { guess } from 'web-audio-beat-detector';
+```
+
+The `guess()` function expects an `AudioBuffer` as well and also returns a `Promise`. The `Promise`
+will resolve with an object containing the estimated BPM (the rounded tempo) and the offset of the
+first beat in seconds.
+
+```js
+guess(audioBuffer)
+    .then(({ bpm, offset }) => {
+        // the bpm and offset could be guessed
     })
     .catch((err) => {
         // something went wrong
