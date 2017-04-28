@@ -121,11 +121,11 @@ export const analyze = (audioBuffer: AudioBuffer) => {
             }
 
             const intervalBuckets = countIntervalsBetweenNearbyPeaks(peaks);
-            const groups = groupNeighborsByTempo(intervalBuckets, renderedBuffer.sampleRate);
+            const tempoBuckets = groupNeighborsByTempo(intervalBuckets, renderedBuffer.sampleRate);
 
-            groups.sort((a, b) => b.peaks.length - a.peaks.length);
+            tempoBuckets.sort((a, b) => b.peaks.length - a.peaks.length);
 
-            return Math.round(groups[0].tempo);
+            return Math.round(tempoBuckets[0].tempo);
         });
 };
 
