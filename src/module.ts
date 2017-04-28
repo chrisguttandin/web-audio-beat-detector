@@ -114,8 +114,10 @@ export const analyze = (audioBuffer: AudioBuffer) => {
             let peaks: number[] = [];
             let threshold = INITIAL_THRESHOLD;
 
+            const data = renderedBuffer.getChannelData(0);
+
             while (peaks.length < MINUMUM_NUMBER_OF_PEAKS && threshold >= MINIMUM_THRESHOLD) {
-                peaks = getPeaksAtThreshold(renderedBuffer.getChannelData(0), threshold, renderedBuffer.sampleRate);
+                peaks = getPeaksAtThreshold(data, threshold, renderedBuffer.sampleRate);
                 threshold -= 0.05;
             }
 
