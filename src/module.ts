@@ -1,11 +1,12 @@
 import { OfflineAudioContext, isSupported } from 'standardized-audio-context';
+import { IIntervalCount, ITempoCount } from './interfaces';
 
 const INITIAL_THRESHOLD = 0.9;
 const MINUMUM_NUMBER_OF_PEAKS = 30;
 const MINIMUM_THRESHOLD = 0.3;
 
-const countIntervalsBetweenNearbyPeaks = (peaks) => {
-    const intervalCounts = [];
+const countIntervalsBetweenNearbyPeaks = (peaks: number[]) => {
+    const intervalCounts: IIntervalCount[] = [];
 
     peaks.forEach((peak, index) => {
         const length = Math.min(peaks.length - index, 10);
@@ -35,7 +36,7 @@ const countIntervalsBetweenNearbyPeaks = (peaks) => {
     return intervalCounts;
 };
 
-const getPeaksAtThreshold = (data, threshold, sampleRate) => {
+const getPeaksAtThreshold = (data: Float32Array, threshold: number, sampleRate: number) => {
     const peaks = [];
 
     const length = data.length;
@@ -52,10 +53,10 @@ const getPeaksAtThreshold = (data, threshold, sampleRate) => {
     return peaks;
 };
 
-const groupNeighborsByTempo = (intervals, sampleRate) => {
-    const tempoCounts = [];
+const groupNeighborsByTempo = (intervalCounts: IIntervalCount[], sampleRate: number) => {
+    const tempoCounts: ITempoCount[] = [];
 
-    intervals
+    intervalCounts
         .filter((intervalCount) => (intervalCount.interval !== 0))
         .forEach((intervalCount) => {
             // Convert an interval to tempo
@@ -90,7 +91,7 @@ const groupNeighborsByTempo = (intervals, sampleRate) => {
     return tempoCounts;
 };
 
-export const analyze = (audioBuffer) => {
+export const analyze = (audioBuffer: AudioBuffer) => {
     const offlineAudioContext = new OfflineAudioContext(audioBuffer.numberOfChannels, audioBuffer.length, audioBuffer.sampleRate);
     const biquadFilter = offlineAudioContext.createBiquadFilter();
     const bufferSourceNode = offlineAudioContext.createBufferSource();
@@ -110,7 +111,7 @@ export const analyze = (audioBuffer) => {
     return offlineAudioContext
         .startRendering()
         .then((renderedBuffer) => {
-            let peaks = [];
+            let peaks: number[] = [];
             let threshold = INITIAL_THRESHOLD;
 
             while (peaks.length < MINUMUM_NUMBER_OF_PEAKS && threshold >= MINIMUM_THRESHOLD) {
@@ -118,8 +119,8 @@ export const analyze = (audioBuffer) => {
                 threshold -= 0.05;
             }
 
-            const intervals = countIntervalsBetweenNearbyPeaks(peaks);
-            const groups = groupNeighborsByTempo(intervals, renderedBuffer.sampleRate);
+            const intervalCounts = countIntervalsBetweenNearbyPeaks(peaks);
+            const groups = groupNeighborsByTempo(intervalCounts, renderedBuffer.sampleRate);
 
             groups.sort((a, b) => b.count - a.count);
 
