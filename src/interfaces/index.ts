@@ -1,2 +1,2 @@
-export * from './interval-count';
-export * from './tempo-count';
+export * from './interval-bucket';
+export * from './tempo-bucket';

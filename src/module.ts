@@ -1,12 +1,12 @@
 import { OfflineAudioContext, isSupported } from 'standardized-audio-context';
-import { IIntervalCount, ITempoCount } from './interfaces';
+import { IIntervalBucket, ITempoBucket } from './interfaces';
 
 const INITIAL_THRESHOLD = 0.9;
 const MINUMUM_NUMBER_OF_PEAKS = 30;
 const MINIMUM_THRESHOLD = 0.3;
 
 const countIntervalsBetweenNearbyPeaks = (peaks: number[]) => {
-    const intervalCounts: IIntervalCount[] = [];
+    const intervalBuckets: IIntervalBucket[] = [];
 
     peaks
         .forEach((peak, index) => {
@@ -15,9 +15,9 @@ const countIntervalsBetweenNearbyPeaks = (peaks: number[]) => {
             for (let i = 1; i < length; i += 1) {
                 const interval = peaks[index + i] - peak;
 
-                const foundInterval = intervalCounts.some((intervalCount) => {
-                    if (intervalCount.interval === interval) {
-                        intervalCount.count += 1;
+                const foundInterval = intervalBuckets.some((intervalBucket) => {
+                    if (intervalBucket.interval === interval) {
+                        intervalBucket.peaks.push(peak);
 
                         return true;
                     }
@@ -26,15 +26,15 @@ const countIntervalsBetweenNearbyPeaks = (peaks: number[]) => {
                 });
 
                 if (!foundInterval) {
-                    intervalCounts.push({
-                        count: 1,
+                    intervalBuckets.push({
+                        peaks: [ peak ],
                         interval
                     });
                 }
             }
         });
 
-    return intervalCounts;
+    return intervalBuckets;
 };
 
 const getPeaksAtThreshold = (channelData: Float32Array, threshold: number, sampleRate: number) => {
@@ -54,13 +54,13 @@ const getPeaksAtThreshold = (channelData: Float32Array, threshold: number, sampl
     return peaks;
 };
 
-const groupNeighborsByTempo = (intervalCounts: IIntervalCount[], sampleRate: number) => {
-    const tempoCounts: ITempoCount[] = [];
+const groupNeighborsByTempo = (intervalBuckets: IIntervalBucket[], sampleRate: number) => {
+    const tempoBuckets: ITempoBucket[] = [];
 
-    intervalCounts
-        .forEach((intervalCount) => {
+    intervalBuckets
+        .forEach((intervalBucket) => {
             // Convert an interval to a tempo (aka BPM).
-            let theoreticalTempo = 60 / (intervalCount.interval / sampleRate);
+            let theoreticalTempo = 60 / (intervalBucket.interval / sampleRate);
 
             // Adjust the tempo to fit within the 90-180 BPM range.
             while (theoreticalTempo < 90) {
@@ -70,9 +70,9 @@ const groupNeighborsByTempo = (intervalCounts: IIntervalCount[], sampleRate: num
                 theoreticalTempo /= 2;
             }
 
-            const foundTempo = tempoCounts.some((tempoCount) => {
+            const foundTempo = tempoBuckets.some((tempoCount) => {
                 if (tempoCount.tempo === theoreticalTempo) {
-                    tempoCount.count += intervalCount.count;
+                    tempoCount.peaks = [ ...tempoCount.peaks, ...intervalBucket.peaks ];
 
                     return true;
                 }
@@ -81,14 +81,14 @@ const groupNeighborsByTempo = (intervalCounts: IIntervalCount[], sampleRate: num
             });
 
             if (!foundTempo) {
-                tempoCounts.push({
-                    count: intervalCount.count,
+                tempoBuckets.push({
+                    peaks: intervalBucket.peaks,
                     tempo: theoreticalTempo
                 });
             }
         });
 
-    return tempoCounts;
+    return tempoBuckets;
 };
 
 export const analyze = (audioBuffer: AudioBuffer) => {
@@ -120,10 +120,10 @@ export const analyze = (audioBuffer: AudioBuffer) => {
                 threshold -= 0.05;
             }
 
-            const intervalCounts = countIntervalsBetweenNearbyPeaks(peaks);
-            const groups = groupNeighborsByTempo(intervalCounts, renderedBuffer.sampleRate);
+            const intervalBuckets = countIntervalsBetweenNearbyPeaks(peaks);
+            const groups = groupNeighborsByTempo(intervalBuckets, renderedBuffer.sampleRate);
 
-            groups.sort((a, b) => b.count - a.count);
+            groups.sort((a, b) => b.peaks.length - a.peaks.length);
 
             return Math.round(groups[0].tempo);
         });
