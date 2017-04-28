@@ -46,7 +46,7 @@ const getPeaksAtThreshold = (channelData: Float32Array, threshold: number, sampl
         if (channelData[i] > threshold) {
             peaks.push(i);
 
-            // Skip forward 1/4s to get past this peak.
+            // Skip 0.25 seconds forward to get past this peak.
             i += (sampleRate / 4) - 1;
         }
     }
@@ -59,10 +59,10 @@ const groupNeighborsByTempo = (intervalCounts: IIntervalCount[], sampleRate: num
 
     intervalCounts
         .forEach((intervalCount) => {
-            // Convert an interval to tempo
+            // Convert an interval to a tempo (aka BPM).
             let theoreticalTempo = 60 / (intervalCount.interval / sampleRate);
 
-            // Adjust the tempo to fit within the 90-180 BPM range
+            // Adjust the tempo to fit within the 90-180 BPM range.
             while (theoreticalTempo < 90) {
                 theoreticalTempo *= 2;
             }
