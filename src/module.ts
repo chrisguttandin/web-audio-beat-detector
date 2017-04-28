@@ -132,7 +132,7 @@ const computeTempoBuckets = (audioBuffer: AudioBuffer) => {
 export const analyze = async (audioBuffer: AudioBuffer) => {
     const tempoBuckets = await computeTempoBuckets(audioBuffer);
 
-    return Math.round(tempoBuckets[0].tempo);
+    return tempoBuckets[0].tempo;
 };
 
 export const guess = async (audioBuffer: AudioBuffer) => {

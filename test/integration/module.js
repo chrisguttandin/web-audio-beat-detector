@@ -1,22 +1,23 @@
 import { analyze, guess } from '../../src/module';
 import bpmData from '../fixtures/bpm-data.json';
 import { loadFixtureAsAudioBuffer } from '../helper/load-fixture';
+import tempoData from '../fixtures/tempo-data.json';
 
 describe('web-audio-beat-detector', () => {
 
     describe('analyze()', () => {
 
-        leche.withData(bpmData, (filename, bpm) => { // eslint-disable-line no-undef
+        leche.withData(tempoData, (filename, tempo) => { // eslint-disable-line no-undef
 
-            it('should analyze the bpm of the file', function (done) {
+            it('should analyze the tempo of the file', function (done) {
                 this.timeout(15000);
 
                 loadFixtureAsAudioBuffer(filename, (err, audioBuffer) => {
                     expect(err).to.be.null;
 
                     analyze(audioBuffer)
-                        .then((beatsPerMinute) => {
-                            expect(beatsPerMinute).to.deep.equal(bpm);
+                        .then((tmp) => {
+                            expect(tempo).to.deep.equal(tmp);
 
                             done();
                         });
