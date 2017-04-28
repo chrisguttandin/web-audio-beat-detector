@@ -8,7 +8,7 @@ describe('web-audio-beat-detector', () => {
 
         leche.withData(bpmData, (filename, bpm) => { // eslint-disable-line no-undef
 
-            it('should analyze the bpm tags of the file', function (done) {
+            it('should analyze the bpm of the file', function (done) {
                 this.timeout(15000);
 
                 loadFixtureAsAudioBuffer(filename, (err, audioBuffer) => {
