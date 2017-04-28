@@ -8,30 +8,31 @@ const MINIMUM_THRESHOLD = 0.3;
 const countIntervalsBetweenNearbyPeaks = (peaks: number[]) => {
     const intervalCounts: IIntervalCount[] = [];
 
-    peaks.forEach((peak, index) => {
-        const length = Math.min(peaks.length - index, 10);
+    peaks
+        .forEach((peak, index) => {
+            const length = Math.min(peaks.length - index, 10);
 
-        for (let i = 1; i < length; i += 1) {
-            const interval = peaks[index + i] - peak;
+            for (let i = 1; i < length; i += 1) {
+                const interval = peaks[index + i] - peak;
 
-            const foundInterval = intervalCounts.some((intervalCount) => {
-                if (intervalCount.interval === interval) {
-                    intervalCount.count += 1;
+                const foundInterval = intervalCounts.some((intervalCount) => {
+                    if (intervalCount.interval === interval) {
+                        intervalCount.count += 1;
 
-                    return true;
-                }
+                        return true;
+                    }
 
-                return false;
-            });
-
-            if (!foundInterval) {
-                intervalCounts.push({
-                    count: 1,
-                    interval
+                    return false;
                 });
+
+                if (!foundInterval) {
+                    intervalCounts.push({
+                        count: 1,
+                        interval
+                    });
+                }
             }
-        }
-    });
+        });
 
     return intervalCounts;
 };
