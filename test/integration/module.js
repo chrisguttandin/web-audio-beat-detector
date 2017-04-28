@@ -1,5 +1,5 @@
 import { analyze, guess } from '../../src/module';
-import bpmData from '../fixtures/bpm-data.json';
+import bpmOffsetData from '../fixtures/bpm-offset-data.json';
 import { loadFixtureAsAudioBuffer } from '../helper/load-fixture';
 import tempoData from '../fixtures/tempo-data.json';
 
@@ -30,7 +30,7 @@ describe('web-audio-beat-detector', () => {
 
     describe('guess()', () => {
 
-        leche.withData(bpmData, (filename, bpm, offset) => { // eslint-disable-line no-undef
+        leche.withData(bpmOffsetData, (filename, bpm, offset) => { // eslint-disable-line no-undef
 
             it('should guess the bpm and the offset of the file', function (done) {
                 this.timeout(15000);
