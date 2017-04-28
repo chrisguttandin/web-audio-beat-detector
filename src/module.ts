@@ -91,8 +91,8 @@ const groupNeighborsByTempo = (intervalBuckets: IIntervalBucket[], sampleRate: n
     return tempoBuckets;
 };
 
-const computeTempoBuckets = (audioBuffer: AudioBuffer) => {
-    const offlineAudioContext = new OfflineAudioContext(audioBuffer.numberOfChannels, audioBuffer.length, audioBuffer.sampleRate);
+const computeTempoBuckets = (audioBuffer: AudioBuffer, offset: number, duration: number) => {
+    const offlineAudioContext = new OfflineAudioContext(audioBuffer.numberOfChannels, duration * audioBuffer.sampleRate, audioBuffer.sampleRate);
     const biquadFilter = offlineAudioContext.createBiquadFilter();
     const bufferSourceNode = offlineAudioContext.createBufferSource();
 
@@ -105,7 +105,7 @@ const computeTempoBuckets = (audioBuffer: AudioBuffer) => {
         .connect(biquadFilter)
         .connect(offlineAudioContext.destination);
 
-    bufferSourceNode.start(0);
+    bufferSourceNode.start(0, offset, duration);
 
     return offlineAudioContext
         .startRendering()
@@ -131,14 +131,14 @@ const computeTempoBuckets = (audioBuffer: AudioBuffer) => {
         });
 };
 
-export const analyze = async (audioBuffer: AudioBuffer) => {
-    const tempoBuckets = await computeTempoBuckets(audioBuffer);
+export const analyze = async (audioBuffer: AudioBuffer, offset = 0, duration = audioBuffer.duration - offset) => {
+    const tempoBuckets = await computeTempoBuckets(audioBuffer, offset, duration);
 
     return tempoBuckets[0].tempo;
 };
 
-export const guess = async (audioBuffer: AudioBuffer) => {
-    const tempoBuckets = await computeTempoBuckets(audioBuffer);
+export const guess = async (audioBuffer: AudioBuffer, offset = 0, duration = audioBuffer.duration - offset) => {
+    const tempoBuckets = await computeTempoBuckets(audioBuffer, offset, duration);
 
     const { peaks, tempo } = tempoBuckets[0];
     const bpm = Math.round(tempo);
@@ -146,7 +146,7 @@ export const guess = async (audioBuffer: AudioBuffer) => {
 
     peaks.sort((a, b) => a - b);
 
-    let offset = (peaks[0] / audioBuffer.sampleRate);
+    offset = (peaks[0] / audioBuffer.sampleRate);
 
     while (offset > secondsPerBeat) {
         offset -= secondsPerBeat;

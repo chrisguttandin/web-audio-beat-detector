@@ -26,7 +26,7 @@ You can then import its public function `analyze()` like this:
 import { analyze } from 'web-audio-beat-detector';
 ```
 
-The `analyze()` function expects an `AudioBuffer` as its only parameter and it returns a `Promise`
+The `analyze()` function expects an `AudioBuffer` as its first parameter and it returns a `Promise`
 which eventually resolves with the tempo of that buffer as a number. An example usage might look
 like this:
 
@@ -59,6 +59,12 @@ guess(audioBuffer)
         // something went wrong
     });
 ```
+
+`analyze()` and `guess()` do both support `offset` and `duration` as optional arguments. When
+specified these two values are used to select only a part of the given `AudioBuffer`. There usage
+is basically the same as described in the documentation of the
+[`AudioBufferSourceNode.start()`](https://webaudio.github.io/web-audio-api/#widl-AudioBufferSourceNode-start-void-double-when-double-offset-double-duration)
+method.
 
 ## Acknowledgement
 
