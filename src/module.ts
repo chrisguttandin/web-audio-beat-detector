@@ -91,7 +91,7 @@ const groupNeighborsByTempo = (intervalBuckets: IIntervalBucket[], sampleRate: n
     return tempoBuckets;
 };
 
-export const analyze = (audioBuffer: AudioBuffer) => {
+const computeTempoBuckets = (audioBuffer: AudioBuffer) => {
     const offlineAudioContext = new OfflineAudioContext(audioBuffer.numberOfChannels, audioBuffer.length, audioBuffer.sampleRate);
     const biquadFilter = offlineAudioContext.createBiquadFilter();
     const bufferSourceNode = offlineAudioContext.createBufferSource();
@@ -125,8 +125,35 @@ export const analyze = (audioBuffer: AudioBuffer) => {
 
             tempoBuckets.sort((a, b) => b.peaks.length - a.peaks.length);
 
-            return Math.round(tempoBuckets[0].tempo);
+            return tempoBuckets;
         });
 };
+
+export const analyze = async (audioBuffer: AudioBuffer) => {
+    const tempoBuckets = await computeTempoBuckets(audioBuffer);
+
+    return Math.round(tempoBuckets[0].tempo);
+};
+
+export const guess = async (audioBuffer: AudioBuffer) => {
+    const tempoBuckets = await computeTempoBuckets(audioBuffer);
+
+    const { peaks, tempo } = tempoBuckets[0];
+    const bpm = Math.round(tempo);
+    const secondsPerBeat = 60 / bpm;
+
+    peaks.sort((a, b) => a - b);
+
+    let offset = (peaks[0] / audioBuffer.sampleRate);
+
+    while (offset > secondsPerBeat) {
+        offset -= secondsPerBeat;
+    }
+
+    return {
+        bpm,
+        offset
+    };
+}
 
 export { isSupported };
