@@ -11,7 +11,7 @@ const countIntervalsBetweenNearbyPeaks = (peaks: number[]) => {
     peaks.forEach((peak, index) => {
         const length = Math.min(peaks.length - index, 10);
 
-        for (let i = 0; i < length; i += 1) {
+        for (let i = 1; i < length; i += 1) {
             const interval = peaks[index + i] - peak;
 
             const foundInterval = intervalCounts.some((intervalCount) => {
@@ -57,7 +57,6 @@ const groupNeighborsByTempo = (intervalCounts: IIntervalCount[], sampleRate: num
     const tempoCounts: ITempoCount[] = [];
 
     intervalCounts
-        .filter((intervalCount) => (intervalCount.interval !== 0))
         .forEach((intervalCount) => {
             // Convert an interval to tempo
             let theoreticalTempo = 60 / (intervalCount.interval / sampleRate);
