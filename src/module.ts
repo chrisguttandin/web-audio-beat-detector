@@ -100,9 +100,8 @@ export const analyze = (audioBuffer: AudioBuffer) => {
 
     bufferSourceNode.buffer = audioBuffer;
 
-    // @todo Remove this ugly hack again when possible.
-    (<any> bufferSourceNode
-        .connect(biquadFilter))
+    bufferSourceNode
+        .connect(biquadFilter)
         .connect(offlineAudioContext.destination);
 
     bufferSourceNode.start(0);
