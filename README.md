@@ -1,7 +1,5 @@
 # web-audio-beat-detector
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/chrisguttandin/web-audio-beat-detector.svg)](https://greenkeeper.io/)
-
 **A beat detection utility which is using the Web Audio API.**
 
 [![tests](https://img.shields.io/travis/chrisguttandin/web-audio-beat-detector/master.svg?style=flat-square)](https://travis-ci.org/chrisguttandin/web-audio-beat-detector)
