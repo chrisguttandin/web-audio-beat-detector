@@ -20,7 +20,7 @@
     "grunt-replace": "^1.0.1",
     "grunt-sh": "^0.1.4",
     "grunt-tslint": "^5.0.0",
-    "gruntify-eslint": "^3.0.0",
+    "gruntify-eslint": "^4.0.0",
     "husky": "^0.13.0",
     "karma": "^1.1.2",
     "karma-chrome-launcher": "^2.0.0",
