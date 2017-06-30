@@ -40,7 +40,7 @@
     "standardized-audio-context": "^8.0.14",
     "ts-loader": "^2.2.1",
     "tsconfig-holy-grail": "^2.2.11",
-    "tslint-config-holy-grail": "^9.0.6",
+    "tslint-config-holy-grail": "^9.0.7",
     "typescript": "^2.4.1",
     "webpack": "^3.0.0"
   },
