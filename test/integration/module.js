@@ -7,7 +7,7 @@ describe('web-audio-beat-detector', () => {
 
     describe('analyze()', () => {
 
-        leche.withData(tempoData, (filename, tempo) => { // eslint-disable-line no-undef
+        leche.withData(tempoData, (filename, tempo) => {
 
             it('should analyze the tempo of the file', function (done) {
                 this.timeout(15000);
@@ -30,7 +30,7 @@ describe('web-audio-beat-detector', () => {
 
     describe('guess()', () => {
 
-        leche.withData(bpmOffsetData, (filename, bpm, offset) => { // eslint-disable-line no-undef
+        leche.withData(bpmOffsetData, (filename, bpm, offset) => {
 
             it('should guess the bpm and the offset of the file', function (done) {
                 this.timeout(15000);
