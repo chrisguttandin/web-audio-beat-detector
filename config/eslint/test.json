@@ -8,9 +8,6 @@
         "expect": false,
         "leche": false
     },
-    "parserOptions": {
-        "sourceType": "module"
-    },
     "rules": {
         "no-unused-expressions": 0
     }
