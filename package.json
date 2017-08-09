@@ -36,7 +36,7 @@
     "rollup": "^0.45.2",
     "rollup-plugin-babel": "^3.0.1",
     "rollup-plugin-node-resolve": "^3.0.0",
-    "sinon": "^3.0.0",
+    "sinon": "^3.1.0",
     "sinon-chai": "^2.12.0",
     "standardized-audio-context": "^8.2.4",
     "ts-loader": "^2.3.2",
