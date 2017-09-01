@@ -5,7 +5,7 @@
   },
   "dependencies": {
     "web-audio-beat-detector-broker": "^1.0.19",
-    "web-audio-beat-detector-worker": "^2.0.0"
+    "web-audio-beat-detector-worker": "^2.0.1"
   },
   "description": "A beat detection utility which is using the Web Audio API.",
   "devDependencies": {
