@@ -45,7 +45,7 @@
     "sinon-chai": "^2.13.0",
     "standardized-audio-context": "^9.5.6",
     "ts-loader": "^2.3.7",
-    "tsconfig-holy-grail": "^2.4.4",
+    "tsconfig-holy-grail": "^2.4.5",
     "tslint": "^5.7.0",
     "tslint-config-holy-grail": "^13.0.3",
     "typescript": "^2.5.2",
