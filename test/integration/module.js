@@ -26,6 +26,25 @@ describe('web-audio-beat-detector', () => {
 
         });
 
+        describe('with a file without detectable beats', () => {
+
+            it('should throw an error', function (done) {
+                this.timeout(15000);
+
+                loadFixtureAsAudioBuffer('tombo-piano.wav', (err, audioBuffer) => {
+                    expect(err).to.be.null;
+
+                    analyze(audioBuffer)
+                        .catch((err) => {
+                            expect(err.message).to.equal('The given channelData does not contain any detectable beats.');
+
+                            done();
+                        });
+                });
+            });
+
+        });
+
     });
 
     describe('guess()', () => {
@@ -42,6 +61,25 @@ describe('web-audio-beat-detector', () => {
                         .then(({ bpm: btsPrMnt, offset: ffst }) => {
                             expect(bpm).to.deep.equal(btsPrMnt);
                             expect(offset).to.deep.equal(ffst);
+
+                            done();
+                        });
+                });
+            });
+
+        });
+
+        describe('with a file without detectable beats', () => {
+
+            it('should throw an error', function (done) {
+                this.timeout(15000);
+
+                loadFixtureAsAudioBuffer('tombo-piano.wav', (err, audioBuffer) => {
+                    expect(err).to.be.null;
+
+                    guess(audioBuffer)
+                        .catch((err) => {
+                            expect(err.message).to.equal('The given channelData does not contain any detectable beats.');
 
                             done();
                         });
