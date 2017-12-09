@@ -88,8 +88,8 @@ module.exports = (config) => {
             browsers: [
                 'ChromeHeadless',
                 'ChromeCanaryHeadless',
-                'Firefox',
-                'FirefoxDeveloper'
+                'FirefoxHeadless',
+                'FirefoxDeveloperHeadless'
             ]
 
         });
