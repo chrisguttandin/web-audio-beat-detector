@@ -72,5 +72,5 @@
     "test": "grunt lint && grunt test"
   },
   "types": "build/es2015/module.d.ts",
-  "version": "5.1.23"
+  "version": "5.1.24"
 }
