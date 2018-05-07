@@ -16,7 +16,7 @@
   },
   "description": "A beat detection utility which is using the Web Audio API.",
   "devDependencies": {
-    "@commitlint/cli": "^6.1.3",
+    "@commitlint/cli": "^6.2.0",
     "@commitlint/config-angular": "^6.1.3",
     "babel-core": "^6.26.3",
     "babel-plugin-external-helpers": "^6.22.0",
