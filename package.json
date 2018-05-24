@@ -50,7 +50,7 @@
     "rollup": "^0.59.3",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-node-resolve": "^3.3.0",
-    "sinon": "^5.0.7",
+    "sinon": "^5.0.10",
     "sinon-chai": "^3.1.0",
     "standardized-audio-context": "^12.1.11",
     "ts-loader": "^4.3.0",
