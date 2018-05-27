@@ -52,7 +52,7 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "sinon": "^5.0.10",
     "sinon-chai": "^3.1.0",
-    "standardized-audio-context": "^12.1.11",
+    "standardized-audio-context": "^12.1.12",
     "ts-loader": "^4.3.0",
     "tsconfig-holy-grail": "^4.0.17",
     "tslint": "^5.10.0",
