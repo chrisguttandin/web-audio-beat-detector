@@ -4,7 +4,7 @@
 
 [![tests](https://img.shields.io/travis/chrisguttandin/web-audio-beat-detector/master.svg?style=flat-square)](https://travis-ci.org/chrisguttandin/web-audio-beat-detector)
 [![dependencies](https://img.shields.io/david/chrisguttandin/web-audio-beat-detector.svg?style=flat-square)](https://www.npmjs.com/package/web-audio-beat-detector)
-[![version](https://img.shields.io/npm/v/web-audio-beat-detector.svg?style=flat-square)](https://www.npmjs.com/package/web-audio-beat-detector)
+[![version](https://img.shields.io/npm/v/web-audio-beat-detector.svg?style=flat-square)](https://www.npmjs.com/package/web-audio-beat-detector) [![Greenkeeper badge](https://badges.greenkeeper.io/chrisguttandin/web-audio-beat-detector.svg)](https://greenkeeper.io/)
 
 This module is based on the technique explainend by [Joe Sullivan](http://joesul.li/van/) in his
 article
