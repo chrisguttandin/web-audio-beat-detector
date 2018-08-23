@@ -6,7 +6,7 @@ module.exports = {
         cmd: 'rollup -c config/rollup/bundle.js'
     },
     'build-esm': {
-        cmd: 'tsc -p src/tsconfig.json --declaration false --target es5 --outDir build/esm'
+        cmd: 'tsc -p src/tsconfig.json --declaration false --declarationMap false --target es5 --outDir build/esm'
     },
     'lint': {
         cmd: 'tslint --config config/tslint/src.json --project src/tsconfig.json src/*.ts src/**/*.ts'
