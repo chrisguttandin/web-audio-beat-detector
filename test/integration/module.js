@@ -35,8 +35,8 @@ describe('web-audio-beat-detector', () => {
                     expect(err).to.be.null;
 
                     analyze(audioBuffer)
-                        .catch((rr) => {
-                            expect(rr.message).to.equal('The given channelData does not contain any detectable beats.');
+                        .catch((err2) => {
+                            expect(err2.message).to.equal('The given channelData does not contain any detectable beats.');
 
                             done();
                         });
@@ -78,8 +78,8 @@ describe('web-audio-beat-detector', () => {
                     expect(err).to.be.null;
 
                     guess(audioBuffer)
-                        .catch((rr) => {
-                            expect(rr.message).to.equal('The given channelData does not contain any detectable beats.');
+                        .catch((err2) => {
+                            expect(err2.message).to.equal('The given channelData does not contain any detectable beats.');
 
                             done();
                         });
