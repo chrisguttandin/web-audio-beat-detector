@@ -10,3 +10,5 @@ const webAudioBeatDetector = load(url);
 export const analyze = webAudioBeatDetector.analyze;
 
 export const guess = webAudioBeatDetector.guess;
+
+URL.revokeObjectURL(url);
