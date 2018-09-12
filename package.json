@@ -16,7 +16,7 @@
   },
   "description": "A beat detection utility which is using the Web Audio API.",
   "devDependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.0.1",
     "@babel/plugin-external-helpers": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
