@@ -4,7 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
     default: {
         entry: {
-            worker: './node_modules/web-audio-beat-detector-worker/build/es2015/module.js'
+            worker: './node_modules/web-audio-beat-detector-worker/build/es2018/module.js'
         },
         mode: 'production',
         module: {
