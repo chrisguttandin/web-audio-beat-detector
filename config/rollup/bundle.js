@@ -24,6 +24,11 @@ export default new Promise((resolve, reject) => {
             reject(new Error(stats.toString({ errorDetails: true, warnings: true })));
         }
 
+        const transpiledWorkerString = memoryFileSystem
+            .readFileSync('/worker.js', 'utf-8')
+            .replace(/\\/g, '\\\\')
+            .replace(/\${/g, '\\${');
+
         resolve({
             input: 'build/es2018/module.js',
             output: {
@@ -36,7 +41,7 @@ export default new Promise((resolve, reject) => {
                     delimiters: [ '`', '`' ],
                     include: 'build/es2018/worker/worker.js',
                     values: {
-                        [ workerString ]: `\`${ memoryFileSystem.readFileSync('/worker.js', 'utf-8') }\``
+                        [ workerString ]: `\`${ transpiledWorkerString }\``
                     }
                 }),
                 babel({
