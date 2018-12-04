@@ -10,4 +10,4 @@ env:
 install: npm ci || (rm -rf node_modules && npm install)
 language: node_js
 node_js: 11
-sudo: false
+sudo: required
