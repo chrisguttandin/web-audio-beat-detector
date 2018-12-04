@@ -48,7 +48,7 @@
     "karma-webpack": "^3.0.5",
     "load-grunt-config": "^0.19.2",
     "mocha": "^5.2.0",
-    "rollup": "^0.67.3",
+    "rollup": "^0.67.4",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-replace": "^2.1.0",
