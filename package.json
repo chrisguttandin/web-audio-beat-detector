@@ -62,7 +62,7 @@
     "tslint-config-holy-grail": "^39.0.0",
     "typescript": "^3.2.2",
     "uglifyjs-webpack-plugin": "^2.0.1",
-    "webpack": "^4.27.1"
+    "webpack": "^4.28.0"
   },
   "files": [
     "build/es2018/",
