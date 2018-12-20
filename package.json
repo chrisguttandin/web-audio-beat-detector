@@ -11,7 +11,7 @@
   "dependencies": {
     "@babel/runtime": "^7.2.0",
     "tslib": "^1.9.3",
-    "web-audio-beat-detector-broker": "^3.0.13",
+    "web-audio-beat-detector-broker": "^3.0.14",
     "web-audio-beat-detector-worker": "^4.0.4"
   },
   "description": "A beat detection utility which is using the Web Audio API.",
