@@ -1,4 +1,4 @@
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 
 export default {
     entry: {
@@ -25,7 +25,7 @@ export default {
     },
     optimization: {
         minimizer: [
-            new UglifyJsPlugin({
+            new TerserPlugin({
                 extractComments: {
                     banner: false,
                     condition: /^\**!|@preserve|@license|@cc_on/,
