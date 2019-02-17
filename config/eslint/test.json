@@ -5,8 +5,8 @@
     },
     "extends": "eslint-config-holy-grail",
     "globals": {
-        "expect": "readable",
-        "leche": "readable"
+        "expect": "readonly",
+        "leche": "readonly"
     },
     "rules": {
         "no-unused-expressions": 0
