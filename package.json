@@ -57,7 +57,7 @@
     "standardized-audio-context": "^19.0.1",
     "terser-webpack-plugin": "^1.2.2",
     "ts-loader": "^5.3.3",
-    "tsconfig-holy-grail": "^9.1.5",
+    "tsconfig-holy-grail": "^9.1.6",
     "tslint": "^5.12.1",
     "tslint-config-holy-grail": "^41.0.6",
     "typescript": "^3.3.3",
