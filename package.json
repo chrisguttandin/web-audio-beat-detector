@@ -24,7 +24,7 @@
     "@commitlint/config-angular": "^7.5.0",
     "babel-loader": "^8.0.5",
     "chai": "^4.2.0",
-    "commitizen": "^3.0.7",
+    "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.16.0",
     "eslint-config-holy-grail": "^35.0.1",
