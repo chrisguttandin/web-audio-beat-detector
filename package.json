@@ -9,7 +9,7 @@
     }
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.3",
+    "@babel/runtime": "^7.4.4",
     "tslib": "^1.9.3",
     "web-audio-beat-detector-broker": "^3.0.38",
     "web-audio-beat-detector-worker": "^4.0.11"
