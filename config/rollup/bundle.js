@@ -3,7 +3,7 @@ import babel from 'rollup-plugin-babel';
 import { readFileSync } from 'fs';
 import replace from 'rollup-plugin-replace';
 import webpack from 'webpack';
-import webpackConfig from '../webpack/config.js';
+import webpackConfig from '../webpack/config';
 
 const workerFile = readFileSync('src/worker/worker.ts', 'utf-8');
 const result = /export\sconst\sworker\s=\s`(.*)`;/g.exec(workerFile);
@@ -15,7 +15,7 @@ if (result === null) {
 const workerString = result[1];
 const memoryFileSystem = new MemoryFileSystem();
 
-export default new Promise((resolve, reject) => {
+export default new Promise((resolve, reject) => { // eslint-disable-line import/no-default-export
     const compiler = webpack(webpackConfig);
 
     compiler.outputFileSystem = memoryFileSystem;
