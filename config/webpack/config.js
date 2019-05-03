@@ -1,6 +1,6 @@
 import TerserPlugin from 'terser-webpack-plugin';
 
-export default {
+export default { // eslint-disable-line import/no-default-export
     entry: {
         worker: './config/webpack/worker.js'
     },
