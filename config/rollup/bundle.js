@@ -40,7 +40,9 @@ export default new Promise((resolve, reject) => { // eslint-disable-line import/
                         delimiters: [ '`', '`' ],
                         include: 'build/es2018/worker/worker.js',
                         values: {
-                            [ workerString ]: `\`${ transpiledWorkerString }\``
+                            // V8 does only accept substrings with a maximum length of 32767 characters. Otherwise it throws a SyntaxError.
+                            [ workerString.slice(0, 32767) ]: `\`${ transpiledWorkerString }\``,
+                            [ workerString.slice(32767) ]: ''
                         }
                     }),
                     babel({
