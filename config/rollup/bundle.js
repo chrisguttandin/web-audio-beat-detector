@@ -6,13 +6,13 @@ import webpack from 'webpack';
 import webpackConfig from '../webpack/config';
 
 const workerFile = readFileSync('src/worker/worker.ts', 'utf-8');
-const result = /export\sconst\sworker\s=\s`(.*)`;/g.exec(workerFile);
+const result = /export\sconst\sworker\s=\s`(?<workerString>.*)`;/g.exec(workerFile);
 
 if (result === null) {
     throw new Error('The worker file could not be parsed.');
 }
 
-const workerString = result[1];
+const workerString = result.groups.workerString;
 const memoryFileSystem = new MemoryFileSystem();
 
 export default new Promise((resolve, reject) => { // eslint-disable-line import/no-default-export

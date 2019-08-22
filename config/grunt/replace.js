@@ -7,7 +7,7 @@ module.exports = {
         },
         options: {
             patterns: [ {
-                match: /(.*)/s,
+                match: /.*/s,
                 replacement: (match) => {
                     const workerString = match
                         .replace(/\\/g, '\\\\')
