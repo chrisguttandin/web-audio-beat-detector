@@ -9,38 +9,41 @@ describe('web-audio-beat-detector', () => {
 
         leche.withData(tempoData, (filename, tempo) => {
 
-            it('should analyze the tempo of the file', function (done) {
+            let audioBuffer;
+
+            beforeEach(async function () {
                 this.timeout(15000);
 
-                loadFixtureAsAudioBuffer(filename, (err, audioBuffer) => {
-                    expect(err).to.be.null;
+                audioBuffer = await loadFixtureAsAudioBuffer(filename);
+            });
 
-                    analyze(audioBuffer)
-                        .then((tmp) => {
-                            expect(tempo).to.deep.equal(tmp);
+            it('should analyze the tempo of the file', async function () {
+                this.timeout(15000);
 
-                            done();
-                        });
-                });
+                expect(await analyze(audioBuffer)).to.deep.equal(tempo);
             });
 
         });
 
         describe('with a file without detectable beats', () => {
 
+            let audioBuffer;
+
+            beforeEach(async function () {
+                this.timeout(15000);
+
+                audioBuffer = await loadFixtureAsAudioBuffer('tombo-piano.wav');
+            });
+
             it('should throw an error', function (done) {
                 this.timeout(15000);
 
-                loadFixtureAsAudioBuffer('tombo-piano.wav', (err, audioBuffer) => {
-                    expect(err).to.be.null;
+                analyze(audioBuffer)
+                    .catch((err) => {
+                        expect(err.message).to.equal('The given channelData does not contain any detectable beats.');
 
-                    analyze(audioBuffer)
-                        .catch((err_) => {
-                            expect(err_.message).to.equal('The given channelData does not contain any detectable beats.');
-
-                            done();
-                        });
-                });
+                        done();
+                    });
             });
 
         });
@@ -51,39 +54,41 @@ describe('web-audio-beat-detector', () => {
 
         leche.withData(bpmOffsetData, (filename, bpm, offset) => {
 
-            it('should guess the bpm and the offset of the file', function (done) {
+            let audioBuffer;
+
+            beforeEach(async function () {
                 this.timeout(15000);
 
-                loadFixtureAsAudioBuffer(filename, (err, audioBuffer) => {
-                    expect(err).to.be.null;
+                audioBuffer = await loadFixtureAsAudioBuffer(filename);
+            });
 
-                    guess(audioBuffer)
-                        .then(({ bpm: btsPrMnt, offset: ffst }) => {
-                            expect(bpm).to.deep.equal(btsPrMnt);
-                            expect(offset).to.deep.equal(ffst);
+            it('should guess the bpm and the offset of the file', async function () {
+                this.timeout(15000);
 
-                            done();
-                        });
-                });
+                expect(await guess(audioBuffer)).to.deep.equal({ bpm, offset });
             });
 
         });
 
         describe('with a file without detectable beats', () => {
 
+            let audioBuffer;
+
+            beforeEach(async function () {
+                this.timeout(15000);
+
+                audioBuffer = await loadFixtureAsAudioBuffer('tombo-piano.wav');
+            });
+
             it('should throw an error', function (done) {
                 this.timeout(15000);
 
-                loadFixtureAsAudioBuffer('tombo-piano.wav', (err, audioBuffer) => {
-                    expect(err).to.be.null;
+                guess(audioBuffer)
+                    .catch((err) => {
+                        expect(err.message).to.equal('The given channelData does not contain any detectable beats.');
 
-                    guess(audioBuffer)
-                        .catch((err_) => {
-                            expect(err_.message).to.equal('The given channelData does not contain any detectable beats.');
-
-                            done();
-                        });
-                });
+                        done();
+                    });
             });
 
         });
