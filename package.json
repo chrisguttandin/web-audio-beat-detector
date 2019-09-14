@@ -58,7 +58,7 @@
     "tslint": "^5.20.0",
     "tslint-config-holy-grail": "^46.1.0",
     "typescript": "^3.6.3",
-    "webpack": "^4.39.3"
+    "webpack": "^4.40.2"
   },
   "files": [
     "build/es2018/",
