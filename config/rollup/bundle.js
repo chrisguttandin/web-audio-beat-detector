@@ -1,5 +1,6 @@
-import MemoryFileSystem from 'memory-fs';
 import babel from 'rollup-plugin-babel';
+import { fs } from 'memfs';
+import { join } from 'path';
 import { readFileSync } from 'fs';
 import replace from 'rollup-plugin-replace';
 import webpack from 'webpack';
@@ -13,17 +14,16 @@ if (result === null) {
 }
 
 const workerString = result.groups.workerString;
-const memoryFileSystem = new MemoryFileSystem();
 
 export default new Promise((resolve, reject) => { // eslint-disable-line import/no-default-export
     const compiler = webpack(webpackConfig);
 
-    compiler.outputFileSystem = memoryFileSystem;
+    compiler.outputFileSystem = { ...fs, join };
     compiler.run((err, stats) => {
         if (stats.hasErrors() || stats.hasWarnings()) {
             reject(new Error(stats.toString({ errorDetails: true, warnings: true })));
         } else {
-            const transpiledWorkerString = memoryFileSystem
+            const transpiledWorkerString = fs
                 .readFileSync('/worker.js', 'utf-8')
                 .replace(/\\/g, '\\\\')
                 .replace(/\${/g, '\\${');
