@@ -56,7 +56,7 @@
     "terser-webpack-plugin": "^2.2.1",
     "ts-loader": "^6.2.1",
     "tsconfig-holy-grail": "^10.0.27",
-    "tslint": "^5.20.0",
+    "tslint": "^5.20.1",
     "tslint-config-holy-grail": "^46.1.8",
     "typescript": "^3.6.4",
     "webpack": "^4.41.2"
