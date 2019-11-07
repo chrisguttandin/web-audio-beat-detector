@@ -86,5 +86,5 @@
     "test": "grunt lint && grunt test"
   },
   "types": "build/es2018/module.d.ts",
-  "version": "7.0.69"
+  "version": "7.0.70"
 }
