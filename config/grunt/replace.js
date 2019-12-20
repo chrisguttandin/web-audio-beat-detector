@@ -13,7 +13,7 @@ module.exports = {
                         .replace(/\\/g, '\\\\')
                         .replace(/\${/g, '\\${');
 
-                    return `// tslint:disable-next-line:max-line-length\nexport const worker = \`${ workerString }\`;\n`;
+                    return `// This is the minified and stringified code of the web-audio-beat-detector-worker package.\nexport const worker = \`${ workerString }\`; // tslint:disable-line:max-line-length\n`;
                 }
             } ]
         }
