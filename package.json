@@ -39,7 +39,7 @@
     "karma": "^4.4.1",
     "karma-chrome-launcher": "^3.1.0",
     "karma-firefox-launcher": "^1.2.0",
-    "karma-leche": "^1.0.7",
+    "karma-leche": "^1.0.8",
     "karma-mocha": "^1.0.1",
     "karma-sauce-launcher": "^2.0.2",
     "karma-sinon-chai": "^2.0.2",
