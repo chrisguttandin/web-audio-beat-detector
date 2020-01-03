@@ -21,7 +21,7 @@
     "@babel/plugin-transform-runtime": "^7.7.6",
     "@babel/preset-env": "^7.7.7",
     "@commitlint/cli": "^8.3.4",
-    "@commitlint/config-angular": "^8.2.0",
+    "@commitlint/config-angular": "^8.3.4",
     "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
     "commitizen": "^4.0.3",
