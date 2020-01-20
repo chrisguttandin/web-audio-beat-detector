@@ -1,3 +1,5 @@
+![logo](https://repository-images.githubusercontent.com/61281324/6526e580-3b28-11ea-90ce-be241599f494)
+
 # web-audio-beat-detector
 
 **A beat detection utility which is using the Web Audio API.**
