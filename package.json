@@ -8,6 +8,12 @@
       "path": "cz-conventional-changelog"
     }
   },
+  "contributors": [
+    {
+      "email": "magallania@gmail.com",
+      "name": "Darío Hereñú"
+    }
+  ],
   "dependencies": {
     "@babel/runtime": "^7.8.3",
     "tslib": "^1.10.0",
