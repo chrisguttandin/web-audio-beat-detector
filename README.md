@@ -8,7 +8,7 @@
 [![dependencies](https://img.shields.io/david/chrisguttandin/web-audio-beat-detector.svg?style=flat-square)](https://www.npmjs.com/package/web-audio-beat-detector)
 [![version](https://img.shields.io/npm/v/web-audio-beat-detector.svg?style=flat-square)](https://www.npmjs.com/package/web-audio-beat-detector)
 
-This module is based on the technique explainend by [Joe Sullivan](http://joesul.li/van/) in his
+This module is based on the technique explained by [Joe Sullivan](http://joesul.li/van/) in his
 article
 [Beat Detection Using JavaScript and the Web Audio API](http://joesul.li/van/beat-detection-using-web-audio/).
 It is a very easy algorithm which retrieves the beats as BPM of a given AudioBuffer.
