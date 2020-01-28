@@ -70,8 +70,8 @@ method.
 
 ## Acknowledgement
 
-A more comprehensive implemetation has been done by [José M. Pérez](https://jmperezperez.com). It
+A more comprehensive implementation has been done by [José M. Pérez](https://jmperezperez.com). It
 comes with an UI to search for tracks on Spotify which can then be analyzed. He also wrote a blog
 post
-([Detecting tempo of a song using brower's Audio API](https://jmperezperez.com/bpm-detection-javascript/))
+([Detecting tempo of a song using browser's Audio API](https://jmperezperez.com/bpm-detection-javascript/))
 about it.
