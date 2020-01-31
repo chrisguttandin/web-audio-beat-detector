@@ -4,7 +4,7 @@ module.exports = (grunt) => {
 
     return {
         'build-es2018': {
-            cmd: 'tsc -p src/tsconfig.json'
+            cmd: 'tsc --project src/tsconfig.json'
         },
         'build-es5': {
             cmd: 'rollup --config config/rollup/bundle.js'
