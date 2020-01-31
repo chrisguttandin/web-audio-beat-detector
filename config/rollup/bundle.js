@@ -2,7 +2,7 @@ import babel from 'rollup-plugin-babel';
 import { fs } from 'memfs';
 import { join } from 'path';
 import { readFileSync } from 'fs';
-import replace from 'rollup-plugin-replace';
+import replace from '@rollup/plugin-replace';
 import webpack from 'webpack';
 import webpackConfig from '../webpack/config';
 
