@@ -29,7 +29,7 @@ export default new Promise((resolve, reject) => { // eslint-disable-line import/
                 .replace(/\${/g, '\\${');
 
             resolve({
-                input: 'build/es2018/module.js',
+                input: 'build/es2019/module.js',
                 output: {
                     file: 'build/es5/bundle.js',
                     format: 'umd',
@@ -38,7 +38,7 @@ export default new Promise((resolve, reject) => { // eslint-disable-line import/
                 plugins: [
                     replace({
                         delimiters: [ '`', '`' ],
-                        include: 'build/es2018/worker/worker.js',
+                        include: 'build/es2019/worker/worker.js',
                         values: {
                             // V8 does only accept substrings with a maximum length of 32767 characters. Otherwise it throws a SyntaxError.
                             [ workerString.slice(0, 32767) ]: `\`${ transpiledWorkerString }\``,

@@ -3,7 +3,7 @@ module.exports = {
         'clean:build',
         'webpack',
         'replace:worker',
-        'sh:build-es2018',
+        'sh:build-es2019',
         'sh:build-es5'
     ],
     lint: [
