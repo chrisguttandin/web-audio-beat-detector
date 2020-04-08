@@ -23,7 +23,7 @@ export default new Promise((resolve, reject) => { // eslint-disable-line import/
         if (stats.hasErrors() || stats.hasWarnings()) {
             reject(new Error(stats.toString({ errorDetails: true, warnings: true })));
         } else {
-            const transpiledWorkerString = fs
+            const transpiledWorkerString = fs // eslint-disable-line node/no-sync
                 .readFileSync('/worker.js', 'utf-8')
                 .replace(/\\/g, '\\\\')
                 .replace(/\${/g, '\\${');
