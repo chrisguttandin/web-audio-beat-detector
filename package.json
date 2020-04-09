@@ -57,7 +57,7 @@
     "rollup-plugin-babel": "^4.4.0",
     "sinon": "^9.0.2",
     "sinon-chai": "^3.5.0",
-    "standardized-audio-context": "^24.1.4",
+    "standardized-audio-context": "^24.1.5",
     "terser-webpack-plugin": "^2.3.5",
     "ts-loader": "^6.2.2",
     "tsconfig-holy-grail": "^11.0.7",
