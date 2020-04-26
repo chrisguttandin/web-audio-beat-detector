@@ -52,7 +52,7 @@
     "karma-webpack": "^4.0.2",
     "load-grunt-config": "^3.0.1",
     "memfs": "^3.1.2",
-    "mocha": "^7.1.1",
+    "mocha": "^7.1.2",
     "rollup": "^2.6.1",
     "rollup-plugin-babel": "^4.4.0",
     "sinon": "^9.0.2",
