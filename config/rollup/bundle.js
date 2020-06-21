@@ -15,7 +15,8 @@ if (result === null) {
 
 const workerString = result.groups.workerString;
 
-export default new Promise((resolve, reject) => { // eslint-disable-line import/no-default-export
+// eslint-disable-next-line import/no-default-export
+export default new Promise((resolve, reject) => {
     const compiler = webpack(webpackConfig);
 
     compiler.outputFileSystem = { ...fs, join };
@@ -37,20 +38,17 @@ export default new Promise((resolve, reject) => { // eslint-disable-line import/
                 },
                 plugins: [
                     replace({
-                        delimiters: [ '`', '`' ],
+                        delimiters: ['`', '`'],
                         include: 'build/es2019/worker/worker.js',
                         values: {
                             // V8 does only accept substrings with a maximum length of 32767 characters. Otherwise it throws a SyntaxError.
-                            [ workerString.slice(0, 32767) ]: `\`${ transpiledWorkerString }\``,
-                            [ workerString.slice(32767) ]: ''
+                            [workerString.slice(0, 32767)]: `\`${transpiledWorkerString}\``,
+                            [workerString.slice(32767)]: ''
                         }
                     }),
                     babel({
                         exclude: 'node_modules/**',
-                        plugins: [
-                            '@babel/plugin-external-helpers',
-                            '@babel/plugin-transform-runtime'
-                        ],
+                        plugins: ['@babel/plugin-external-helpers', '@babel/plugin-transform-runtime'],
                         presets: [
                             [
                                 '@babel/preset-env',

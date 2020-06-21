@@ -4,11 +4,8 @@ import { loadFixtureAsAudioBuffer } from '../helper/load-fixture';
 import tempoData from '../fixtures/tempo-data.json';
 
 describe('web-audio-beat-detector', () => {
-
     describe('analyze()', () => {
-
         leche.withData(tempoData, (filename, tempo) => {
-
             let audioBuffer;
 
             beforeEach(async function () {
@@ -22,11 +19,9 @@ describe('web-audio-beat-detector', () => {
 
                 expect(await analyze(audioBuffer)).to.deep.equal(tempo);
             });
-
         });
 
         describe('with a file without detectable beats', () => {
-
             let audioBuffer;
 
             beforeEach(async function () {
@@ -38,22 +33,17 @@ describe('web-audio-beat-detector', () => {
             it('should throw an error', function (done) {
                 this.timeout(15000);
 
-                analyze(audioBuffer)
-                    .catch((err) => {
-                        expect(err.message).to.equal('The given channelData does not contain any detectable beats.');
+                analyze(audioBuffer).catch((err) => {
+                    expect(err.message).to.equal('The given channelData does not contain any detectable beats.');
 
-                        done();
-                    });
+                    done();
+                });
             });
-
         });
-
     });
 
     describe('guess()', () => {
-
         leche.withData(bpmOffsetData, (filename, bpm, offset) => {
-
             let audioBuffer;
 
             beforeEach(async function () {
@@ -67,11 +57,9 @@ describe('web-audio-beat-detector', () => {
 
                 expect(await guess(audioBuffer)).to.deep.equal({ bpm, offset });
             });
-
         });
 
         describe('with a file without detectable beats', () => {
-
             let audioBuffer;
 
             beforeEach(async function () {
@@ -83,16 +71,12 @@ describe('web-audio-beat-detector', () => {
             it('should throw an error', function (done) {
                 this.timeout(15000);
 
-                guess(audioBuffer)
-                    .catch((err) => {
-                        expect(err.message).to.equal('The given channelData does not contain any detectable beats.');
+                guess(audioBuffer).catch((err) => {
+                    expect(err.message).to.equal('The given channelData does not contain any detectable beats.');
 
-                        done();
-                    });
+                    done();
+                });
             });
-
         });
-
     });
-
 });

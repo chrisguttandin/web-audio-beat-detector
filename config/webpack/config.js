@@ -1,27 +1,25 @@
 import TerserPlugin from 'terser-webpack-plugin';
 
-export default { // eslint-disable-line import/no-default-export
+// eslint-disable-next-line import/no-default-export
+export default {
     entry: {
         worker: './config/webpack/worker.js'
     },
     mode: 'production',
     module: {
-        rules: [ {
-            exclude: /node_modules/,
-            test: /\.js$/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    plugins: [
-                        '@babel/plugin-external-helpers',
-                        '@babel/plugin-transform-runtime'
-                    ],
-                    presets: [
-                        '@babel/preset-env'
-                    ]
+        rules: [
+            {
+                exclude: /node_modules/,
+                test: /\.js$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: ['@babel/plugin-external-helpers', '@babel/plugin-transform-runtime'],
+                        presets: ['@babel/preset-env']
+                    }
                 }
             }
-        } ]
+        ]
     },
     optimization: {
         minimizer: [
@@ -39,7 +37,7 @@ export default { // eslint-disable-line import/no-default-export
         path: '/'
     },
     resolve: {
-        mainFields: [ 'browser', 'main' ]
+        mainFields: ['browser', 'main']
     },
     target: 'webworker'
 };

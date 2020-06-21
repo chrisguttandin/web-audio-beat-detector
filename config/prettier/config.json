@@ -1,8 +1,8 @@
 {
-  "arrowParens": "always",
-  "printWidth": 140,
-  "quoteProps": "consistent",
-  "singleQuote": true,
-  "tabWidth": 4,
-  "trailingComma": "none"
+    "arrowParens": "always",
+    "printWidth": 140,
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "tabWidth": 4,
+    "trailingComma": "none"
 }

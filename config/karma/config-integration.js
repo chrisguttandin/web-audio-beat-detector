@@ -1,9 +1,7 @@
 const { env } = require('process');
 
 module.exports = (config) => {
-
     config.set({
-
         basePath: '../../',
 
         browserNoActivityTimeout: 50000,
@@ -26,11 +24,7 @@ module.exports = (config) => {
             'test/integration/**/*.js'
         ],
 
-        frameworks: [
-            'leche',
-            'mocha',
-            'sinon-chai'
-        ],
+        frameworks: ['leche', 'mocha', 'sinon-chai'],
 
         preprocessors: {
             'test/integration/**/*.js': 'webpack'
@@ -39,32 +33,28 @@ module.exports = (config) => {
         webpack: {
             mode: 'development',
             module: {
-                rules: [ {
-                    test: /\.ts?$/,
-                    use: {
-                        loader: 'ts-loader'
+                rules: [
+                    {
+                        test: /\.ts?$/,
+                        use: {
+                            loader: 'ts-loader'
+                        }
                     }
-                } ]
+                ]
             },
             resolve: {
-                extensions: [ '.js', '.ts' ]
+                extensions: ['.js', '.ts']
             }
         },
 
         webpackMiddleware: {
             noInfo: true
         }
-
     });
 
     if (env.TRAVIS) {
-
         config.set({
-
-            browsers: [
-                'ChromeSauceLabs',
-                'FirefoxSauceLabs'
-            ],
+            browsers: ['ChromeSauceLabs', 'FirefoxSauceLabs'],
 
             captureTimeout: 120000,
 
@@ -82,22 +72,10 @@ module.exports = (config) => {
             },
 
             tunnelIdentifier: env.TRAVIS_JOB_NUMBER
-
         });
-
     } else {
-
         config.set({
-
-            browsers: [
-                'ChromeHeadless',
-                'ChromeCanaryHeadless',
-                'FirefoxHeadless',
-                'FirefoxDeveloperHeadless'
-            ]
-
+            browsers: ['ChromeHeadless', 'ChromeCanaryHeadless', 'FirefoxHeadless', 'FirefoxDeveloperHeadless']
         });
-
     }
-
 };
