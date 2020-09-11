@@ -31,7 +31,7 @@
         "@rollup/plugin-replace": "^2.3.3",
         "babel-loader": "^8.1.0",
         "chai": "^4.2.0",
-        "commitizen": "^4.1.2",
+        "commitizen": "^4.2.1",
         "cz-conventional-changelog": "^3.2.0",
         "eslint": "^7.7.0",
         "eslint-config-holy-grail": "^48.0.0",
