@@ -60,7 +60,7 @@
         "sinon": "^9.0.3",
         "sinon-chai": "^3.5.0",
         "standardized-audio-context": "^25.0.5",
-        "terser-webpack-plugin": "^4.2.1",
+        "terser-webpack-plugin": "^4.2.2",
         "ts-loader": "^8.0.4",
         "tsconfig-holy-grail": "^11.0.27",
         "tslint": "^6.1.3",
