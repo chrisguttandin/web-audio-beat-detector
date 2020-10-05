@@ -57,7 +57,7 @@
         "pretty-quick": "^3.0.2",
         "rollup": "^2.28.2",
         "rollup-plugin-babel": "^4.4.0",
-        "sinon": "^9.0.3",
+        "sinon": "^9.1.0",
         "sinon-chai": "^3.5.0",
         "standardized-audio-context": "^25.1.0",
         "terser-webpack-plugin": "^4.2.2",
