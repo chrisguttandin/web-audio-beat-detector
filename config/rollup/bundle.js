@@ -1,4 +1,4 @@
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 import { fs } from 'memfs';
 import { join } from 'path';
 import { readFileSync } from 'fs';
@@ -47,6 +47,7 @@ export default new Promise((resolve, reject) => {
                         }
                     }),
                     babel({
+                        babelHelpers: 'runtime',
                         exclude: 'node_modules/**',
                         plugins: ['@babel/plugin-external-helpers', '@babel/plugin-transform-runtime'],
                         presets: [
@@ -56,8 +57,7 @@ export default new Promise((resolve, reject) => {
                                     modules: false
                                 }
                             ]
-                        ],
-                        runtimeHelpers: true
+                        ]
                     })
                 ]
             });
