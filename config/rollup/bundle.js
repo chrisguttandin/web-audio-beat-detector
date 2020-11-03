@@ -6,7 +6,7 @@ import replace from '@rollup/plugin-replace';
 import webpack from 'webpack';
 import webpackConfig from '../webpack/config';
 
-const workerFile = readFileSync('src/worker/worker.ts', 'utf-8');
+const workerFile = readFileSync('src/worker/worker.ts', 'utf8');
 const result = /export\sconst\sworker\s=\s`(?<workerString>.*)`;/g.exec(workerFile);
 
 if (result === null) {
@@ -25,7 +25,7 @@ export default new Promise((resolve, reject) => {
             reject(new Error(stats.toString({ errorDetails: true, warnings: true })));
         } else {
             const transpiledWorkerString = fs // eslint-disable-line node/no-sync
-                .readFileSync('/worker.js', 'utf-8')
+                .readFileSync('/worker.js', 'utf8')
                 .replace(/\\/g, '\\\\')
                 .replace(/\${/g, '\\${');
 
