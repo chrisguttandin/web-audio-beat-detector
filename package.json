@@ -59,7 +59,7 @@
         "rollup": "^2.33.3",
         "sinon": "^9.2.1",
         "sinon-chai": "^3.5.0",
-        "standardized-audio-context": "^25.1.5",
+        "standardized-audio-context": "^25.1.6",
         "terser-webpack-plugin": "^4.2.3",
         "ts-loader": "^8.0.7",
         "tsconfig-holy-grail": "^11.0.33",
