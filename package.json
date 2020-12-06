@@ -28,7 +28,7 @@
         "@babel/preset-env": "^7.12.7",
         "@commitlint/cli": "^11.0.0",
         "@commitlint/config-angular": "^11.0.0",
-        "@rollup/plugin-babel": "^5.2.1",
+        "@rollup/plugin-babel": "^5.2.2",
         "@rollup/plugin-replace": "^2.3.4",
         "babel-loader": "^8.2.2",
         "chai": "^4.2.0",
