@@ -17,7 +17,7 @@ describe('web-audio-beat-detector', () => {
             it('should analyze the tempo of the file', async function () {
                 this.timeout(15000);
 
-                expect(await analyze(audioBuffer)).to.deep.equal(tempo);
+                expect(await analyze(audioBuffer)).to.be.closeTo(tempo, 0.005);
             });
         });
 
