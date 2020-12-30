@@ -55,7 +55,10 @@ describe('web-audio-beat-detector', () => {
             it('should guess the bpm and the offset of the file', async function () {
                 this.timeout(15000);
 
-                expect(await guess(audioBuffer)).to.deep.equal({ bpm, offset });
+                const result = await guess(audioBuffer);
+
+                expect(result.offset).to.closeTo(offset, 0.005);
+                expect(result).to.deep.equal({ bpm, offset: result.offset });
             });
         });
 
