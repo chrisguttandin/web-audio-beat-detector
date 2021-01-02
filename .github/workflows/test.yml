@@ -17,6 +17,7 @@ jobs:
                 node-version: [14.x]
                 target: [chrome, firefox, safari]
                 type: [integration]
+            max-parallel: 3
 
         steps:
             - name: Checkout repository
