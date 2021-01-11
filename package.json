@@ -16,7 +16,7 @@
     ],
     "dependencies": {
         "@babel/runtime": "^7.12.5",
-        "tslib": "^2.0.3",
+        "tslib": "^2.1.0",
         "web-audio-beat-detector-broker": "^4.0.35",
         "web-audio-beat-detector-worker": "^5.0.20"
     },
