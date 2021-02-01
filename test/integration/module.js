@@ -43,7 +43,7 @@ describe('web-audio-beat-detector', () => {
     });
 
     describe('guess()', () => {
-        leche.withData(bpmOffsetData, (filename, bpm, offset) => {
+        leche.withData(bpmOffsetData, (filename, bpm, offset, tempo) => {
             let audioBuffer;
 
             beforeEach(async function () {
@@ -52,13 +52,14 @@ describe('web-audio-beat-detector', () => {
                 audioBuffer = await loadFixtureAsAudioBuffer(filename);
             });
 
-            it('should guess the bpm and the offset of the file', async function () {
+            it('should guess the bpm, the offset and the tempo of the file', async function () {
                 this.timeout(15000);
 
                 const result = await guess(audioBuffer);
 
                 expect(result.offset).to.closeTo(offset, 0.005);
-                expect(result).to.deep.equal({ bpm, offset: result.offset });
+                expect(result.tempo).to.be.closeTo(tempo, 0.005);
+                expect(result).to.deep.equal({ bpm, offset: result.offset, tempo: result.tempo });
             });
         });
 
