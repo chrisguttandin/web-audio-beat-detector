@@ -54,8 +54,9 @@ first beat in seconds.
 
 ```js
 guess(audioBuffer)
-    .then(({ bpm, offset }) => {
+    .then(({ bpm, offset, tempo }) => {
         // the bpm and offset could be guessed
+        // the tempo is the same as the one returned by analyze()
     })
     .catch((err) => {
         // something went wrong
