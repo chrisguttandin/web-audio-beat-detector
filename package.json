@@ -43,7 +43,7 @@
         "grunt-sh": "^0.2.0",
         "grunt-webpack": "^4.0.2",
         "husky": "^4.3.8",
-        "karma": "^6.1.1",
+        "karma": "^6.2.0",
         "karma-chrome-launcher": "^3.1.0",
         "karma-firefox-launcher": "^2.1.0",
         "karma-leche": "^1.0.10",
