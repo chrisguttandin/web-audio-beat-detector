@@ -49,7 +49,7 @@
         "karma-leche": "^1.0.10",
         "karma-mocha": "^2.0.1",
         "karma-safari-launcher": "^1.0.0",
-        "karma-sauce-launcher": "^4.3.5",
+        "karma-sauce-launcher": "^4.3.6",
         "karma-sinon-chai": "^2.0.2",
         "karma-webpack": "^5.0.0",
         "load-grunt-config": "^3.0.1",
