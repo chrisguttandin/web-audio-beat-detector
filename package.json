@@ -59,7 +59,7 @@
         "pretty-quick": "^3.1.0",
         "rollup": "^2.50.0",
         "sinon": "^11.0.0",
-        "sinon-chai": "^3.6.0",
+        "sinon-chai": "^3.7.0",
         "standardized-audio-context": "^25.2.3",
         "terser-webpack-plugin": "^5.1.2",
         "ts-loader": "^9.2.2",
