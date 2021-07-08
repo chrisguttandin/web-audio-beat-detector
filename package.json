@@ -57,7 +57,7 @@
         "mocha": "^9.0.2",
         "prettier": "^2.3.2",
         "pretty-quick": "^3.1.1",
-        "rollup": "^2.52.3",
+        "rollup": "^2.52.8",
         "sinon": "^11.1.1",
         "sinon-chai": "^3.7.0",
         "standardized-audio-context": "^25.2.9",
