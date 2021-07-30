@@ -29,7 +29,7 @@
         "@commitlint/cli": "^13.1.0",
         "@commitlint/config-angular": "^13.1.0",
         "@rollup/plugin-babel": "^5.3.0",
-        "@rollup/plugin-replace": "^2.4.2",
+        "@rollup/plugin-replace": "^3.0.0",
         "babel-loader": "^8.2.2",
         "chai": "^4.3.4",
         "commitizen": "^4.2.4",
