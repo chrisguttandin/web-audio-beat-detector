@@ -54,7 +54,7 @@
         "karma-webpack": "^5.0.0",
         "load-grunt-config": "^4.0.1",
         "memfs": "^3.3.0",
-        "mocha": "^9.1.1",
+        "mocha": "^9.1.2",
         "prettier": "^2.4.1",
         "pretty-quick": "^3.1.1",
         "rollup": "^2.57.0",
