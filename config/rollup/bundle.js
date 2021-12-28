@@ -4,7 +4,7 @@ import { fs } from 'memfs';
 import { join } from 'path';
 import replace from '@rollup/plugin-replace';
 import webpack from 'webpack';
-import webpackConfig from '../webpack/config';
+import webpackConfig from '../webpack/worker-es5';
 
 const workerFile = readFileSync('src/worker/worker.ts', 'utf8');
 const result = /export\sconst\sworker\s=\s`(?<workerString>.*)`;/g.exec(workerFile);
