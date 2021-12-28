@@ -39,7 +39,6 @@
         "grunt": "^1.4.1",
         "grunt-cli": "^1.4.3",
         "grunt-contrib-clean": "^2.0.0",
-        "grunt-replace": "^2.0.2",
         "grunt-sh": "^0.2.0",
         "grunt-webpack": "^5.0.0",
         "husky": "^7.0.4",
