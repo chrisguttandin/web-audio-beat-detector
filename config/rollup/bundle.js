@@ -1,7 +1,7 @@
+import { readFile, readFileSync, readlink, stat } from 'fs';
 import babel from '@rollup/plugin-babel';
 import { fs } from 'memfs';
 import { join } from 'path';
-import { readFileSync } from 'fs';
 import replace from '@rollup/plugin-replace';
 import webpack from 'webpack';
 import webpackConfig from '../webpack/config';
@@ -19,6 +19,37 @@ const workerString = result.groups.workerString;
 export default new Promise((resolve, reject) => {
     const compiler = webpack(webpackConfig);
 
+    compiler.inputFileSystem = {
+        readFile(path, ...args) {
+            if (path === join(__dirname, '../../src/worker.js')) {
+                args.pop()(null, "import 'web-audio-beat-detector-worker';");
+
+                return;
+            }
+
+            return readFile(path, ...args);
+        },
+        readlink(path, callback) {
+            if (path === join(__dirname, '../../src/worker.js')) {
+                return readlink(__filename, callback);
+            }
+
+            return readlink(path, callback);
+        },
+        stat(path, ...args) {
+            if (path === join(__dirname, '../../src/worker.js')) {
+                args.pop()(null, {
+                    isFile() {
+                        return true;
+                    }
+                });
+
+                return;
+            }
+
+            return stat(path, ...args);
+        }
+    };
     compiler.outputFileSystem = { ...fs, join };
     compiler.run((err, stats) => {
         if (err !== null) {
