@@ -40,7 +40,6 @@
         "grunt-cli": "^1.4.3",
         "grunt-contrib-clean": "^2.0.0",
         "grunt-sh": "^0.2.0",
-        "grunt-webpack": "^5.0.0",
         "husky": "^7.0.4",
         "karma": "^6.3.9",
         "karma-chrome-launcher": "^3.1.0",
