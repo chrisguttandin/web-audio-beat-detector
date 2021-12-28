@@ -21,7 +21,9 @@ export default new Promise((resolve, reject) => {
 
     compiler.outputFileSystem = { ...fs, join };
     compiler.run((err, stats) => {
-        if (stats.hasErrors() || stats.hasWarnings()) {
+        if (err !== null) {
+            reject(err);
+        } else if (stats.hasErrors() || stats.hasWarnings()) {
             reject(new Error(stats.toString({ errorDetails: true, warnings: true })));
         } else {
             const transpiledWorkerString = fs // eslint-disable-line node/no-sync
