@@ -4,8 +4,8 @@ import { loadFixtureAsAudioBuffer } from '../helper/load-fixture';
 import tempoData from '../fixtures/tempo-data.json';
 
 describe('web-audio-beat-detector', () => {
-    describe('analyze()', () => {
-        leche.withData(tempoData, (filename, tempo) => {
+    for (const [filename, tempo] of tempoData) {
+        describe('analyze()', () => {
             let audioBuffer;
 
             beforeEach(async function () {
@@ -40,10 +40,10 @@ describe('web-audio-beat-detector', () => {
                 });
             });
         });
-    });
+    }
 
-    describe('guess()', () => {
-        leche.withData(bpmOffsetData, (filename, bpm, offset, tempo) => {
+    for (const [filename, bpm, offset, tempo] of bpmOffsetData) {
+        describe('guess()', () => {
             let audioBuffer;
 
             beforeEach(async function () {
@@ -82,5 +82,5 @@ describe('web-audio-beat-detector', () => {
                 });
             });
         });
-    });
+    }
 });
