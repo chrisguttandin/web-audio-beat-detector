@@ -34,7 +34,7 @@ module.exports = (config) => {
             'test/integration/**/*.js'
         ],
 
-        frameworks: ['leche', 'mocha', 'sinon-chai'],
+        frameworks: ['mocha', 'sinon-chai'],
 
         preprocessors: {
             'test/integration/**/*.js': 'webpack'
