@@ -30,7 +30,7 @@
         "@commitlint/config-angular": "^16.2.4",
         "@rollup/plugin-babel": "^5.3.1",
         "@rollup/plugin-replace": "^4.0.0",
-        "babel-loader": "^8.2.4",
+        "babel-loader": "^8.2.5",
         "chai": "^4.3.6",
         "commitizen": "^4.2.4",
         "cz-conventional-changelog": "^3.3.0",
