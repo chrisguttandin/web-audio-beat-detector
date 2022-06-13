@@ -24,7 +24,7 @@
     "devDependencies": {
         "@babel/core": "^7.18.5",
         "@babel/plugin-external-helpers": "^7.17.12",
-        "@babel/plugin-transform-runtime": "^7.18.2",
+        "@babel/plugin-transform-runtime": "^7.18.5",
         "@babel/preset-env": "^7.18.2",
         "@commitlint/cli": "^17.0.1",
         "@commitlint/config-angular": "^17.0.0",
