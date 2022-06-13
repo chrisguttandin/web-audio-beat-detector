@@ -9,6 +9,9 @@ module.exports = (grunt) => {
         'build-es5': {
             cmd: 'rollup --config config/rollup/bundle.js'
         },
+        'clean': {
+            cmd: 'rimraf build/*'
+        },
         'lint-config': {
             cmd: `eslint --config config/eslint/config.json --ext .js ${fix ? '--fix ' : ''}--report-unused-disable-directives *.js config/`
         },
