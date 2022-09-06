@@ -6,10 +6,7 @@
 
 [![version](https://img.shields.io/npm/v/web-audio-beat-detector.svg?style=flat-square)](https://www.npmjs.com/package/web-audio-beat-detector)
 
-This module is based on the technique explained by [Joe Sullivan](http://joesul.li/van/) in his
-article
-[Beat Detection Using JavaScript and the Web Audio API](http://joesul.li/van/beat-detection-using-web-audio/).
-It is a very easy algorithm which retrieves the beats as BPM of a given AudioBuffer.
+This module is based on the technique explained by [Joe Sullivan](http://joesul.li/van/) in his article [Beat Detection Using JavaScript and the Web Audio API](http://joesul.li/van/beat-detection-using-web-audio/). It retrieves the beats as BPM of a given AudioBuffer. The algorithm used is not as complex (and expensive to compute) as many others. But it yields surprisingly good results especially for electronic music.
 
 ## Usage
 
@@ -61,11 +58,7 @@ guess(audioBuffer)
     });
 ```
 
-`analyze()` and `guess()` do both support `offset` and `duration` as optional arguments. When
-specified these two values are used to select only a part of the given `AudioBuffer`. There usage
-is basically the same as described in the documentation of the
-[`AudioBufferSourceNode.start()`](https://webaudio.github.io/web-audio-api/#widl-AudioBufferSourceNode-start-void-double-when-double-offset-double-duration)
-method.
+`analyze()` and `guess()` do both support `offset` and `duration` as optional arguments. When specified these two values are used to select only a part of the given `AudioBuffer`. There usage is the same as described in the documentation of the [`AudioBufferSourceNode.start()`](https://webaudio.github.io/web-audio-api/#widl-AudioBufferSourceNode-start-void-double-when-double-offset-double-duration) method.
 
 ## Acknowledgement
 
