@@ -1,14 +1,22 @@
 import { load } from 'web-audio-beat-detector-broker';
 import { worker } from './worker/worker';
 
-const blob: Blob = new Blob([worker], { type: 'application/javascript; charset=utf-8' });
+let analyze, guess
 
-const url: string = URL.createObjectURL(blob);
+if (typeof document !== 'undefined') {
 
-const webAudioBeatDetector = load(url);
+  const blob: Blob = new Blob([worker], { type: 'application/javascript; charset=utf-8' });
 
-export const analyze = webAudioBeatDetector.analyze;
+  const url: string = URL.createObjectURL(blob);
 
-export const guess = webAudioBeatDetector.guess;
+  const webAudioBeatDetector = load(url);
 
-URL.revokeObjectURL(url);
+  analyze = webAudioBeatDetector.analyze;
+
+  guess = webAudioBeatDetector.guess;
+
+  URL.revokeObjectURL(url);
+
+}
+
+export { analyze, guess }
