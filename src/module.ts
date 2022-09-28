@@ -1,7 +1,8 @@
 import { load } from 'web-audio-beat-detector-broker';
 import { worker } from './worker/worker';
 
-let analyze, guess
+let analyze: ReturnType<typeof load>['analyze'];
+let guess: ReturnType<typeof load>['guess'];
 
 if (typeof document !== 'undefined') {
 
