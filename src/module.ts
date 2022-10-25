@@ -10,11 +10,7 @@ if (typeof document !== 'undefined') {
 
   const url: string = URL.createObjectURL(blob);
 
-  const webAudioBeatDetector = load(url);
-
-  analyze = webAudioBeatDetector.analyze;
-
-  guess = webAudioBeatDetector.guess;
+  ;({analyze, guess} = load(url))
 
   URL.revokeObjectURL(url);
 
