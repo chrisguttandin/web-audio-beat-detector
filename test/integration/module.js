@@ -3,22 +3,24 @@ import bpmOffsetData from '../fixtures/bpm-offset-data.json';
 import { loadFixtureAsAudioBuffer } from '../helper/load-fixture';
 import tempoData from '../fixtures/tempo-data.json';
 
-describe('web-audio-beat-detector', () => {
-    for (const [filename, tempo] of tempoData) {
-        describe('analyze()', () => {
-            let audioBuffer;
+describe('module', () => {
+    describe('analyze()', () => {
+        describe('with a file with detectable beats', () => {
+            for (const [filename, tempo] of tempoData) {
+                let audioBuffer;
 
-            beforeEach(async function () {
-                this.timeout(15000);
+                beforeEach(async function () {
+                    this.timeout(15000);
 
-                audioBuffer = await loadFixtureAsAudioBuffer(filename);
-            });
+                    audioBuffer = await loadFixtureAsAudioBuffer(filename);
+                });
 
-            it('should analyze the tempo of the file', async function () {
-                this.timeout(15000);
+                it('should analyze the tempo of the file', async function () {
+                    this.timeout(15000);
 
-                expect(await analyze(audioBuffer)).to.be.closeTo(tempo, 0.005);
-            });
+                    expect(await analyze(audioBuffer)).to.be.closeTo(tempo, 0.005);
+                });
+            }
         });
 
         describe('with a file without detectable beats', () => {
@@ -40,27 +42,29 @@ describe('web-audio-beat-detector', () => {
                 });
             });
         });
-    }
+    });
 
-    for (const [filename, bpm, offset, tempo] of bpmOffsetData) {
-        describe('guess()', () => {
-            let audioBuffer;
+    describe('guess()', () => {
+        describe('with a file with detectable beats', () => {
+            for (const [filename, bpm, offset, tempo] of bpmOffsetData) {
+                let audioBuffer;
 
-            beforeEach(async function () {
-                this.timeout(15000);
+                beforeEach(async function () {
+                    this.timeout(15000);
 
-                audioBuffer = await loadFixtureAsAudioBuffer(filename);
-            });
+                    audioBuffer = await loadFixtureAsAudioBuffer(filename);
+                });
 
-            it('should guess the bpm, the offset and the tempo of the file', async function () {
-                this.timeout(15000);
+                it('should guess the bpm, the offset and the tempo of the file', async function () {
+                    this.timeout(15000);
 
-                const result = await guess(audioBuffer);
+                    const result = await guess(audioBuffer);
 
-                expect(result.offset).to.closeTo(offset, 0.005);
-                expect(result.tempo).to.be.closeTo(tempo, 0.005);
-                expect(result).to.deep.equal({ bpm, offset: result.offset, tempo: result.tempo });
-            });
+                    expect(result.offset).to.closeTo(offset, 0.005);
+                    expect(result.tempo).to.be.closeTo(tempo, 0.005);
+                    expect(result).to.deep.equal({ bpm, offset: result.offset, tempo: result.tempo });
+                });
+            }
         });
 
         describe('with a file without detectable beats', () => {
@@ -82,5 +86,5 @@ describe('web-audio-beat-detector', () => {
                 });
             });
         });
-    }
+    });
 });
