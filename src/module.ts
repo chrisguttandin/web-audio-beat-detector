@@ -1,19 +1,9 @@
 import { load } from 'web-audio-beat-detector-broker';
+import { createLoadOrReturnBroker } from './factories/load-or-return-broker';
 import { worker } from './worker/worker';
 
-let analyze: ReturnType<typeof load>['analyze'];
-let guess: ReturnType<typeof load>['guess'];
+const loadOrReturnBroker = createLoadOrReturnBroker(load, worker);
 
-if (typeof document !== 'undefined') {
+export const analyze: ReturnType<typeof load>['analyze'] = (...args) => loadOrReturnBroker().analyze(...args);
 
-  const blob: Blob = new Blob([worker], { type: 'application/javascript; charset=utf-8' });
-
-  const url: string = URL.createObjectURL(blob);
-
-  ;({analyze, guess} = load(url))
-
-  URL.revokeObjectURL(url);
-
-}
-
-export { analyze, guess }
+export const guess: ReturnType<typeof load>['guess'] = (...args) => loadOrReturnBroker().guess(...args);
