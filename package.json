@@ -12,6 +12,10 @@
         {
             "email": "magallania@gmail.com",
             "name": "Darío Hereñú"
+        },
+        {
+            "email": "jgentes@users.noreply.github.com",
+            "name": "James Gentes"
         }
     ],
     "dependencies": {
