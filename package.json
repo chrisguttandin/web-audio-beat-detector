@@ -35,7 +35,7 @@
         "@commitlint/cli": "^17.4.2",
         "@commitlint/config-angular": "^17.4.2",
         "@rollup/plugin-babel": "^6.0.3",
-        "@rollup/plugin-replace": "^4.0.0",
+        "@rollup/plugin-replace": "^5.0.2",
         "babel-loader": "^8.3.0",
         "chai": "^4.3.7",
         "commitizen": "^4.2.6",
