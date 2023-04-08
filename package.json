@@ -55,7 +55,7 @@
         "karma-sinon-chai": "^2.0.2",
         "karma-webpack": "^5.0.0",
         "load-grunt-config": "^4.0.1",
-        "memfs": "^3.4.13",
+        "memfs": "^3.5.0",
         "mocha": "^10.2.0",
         "prettier": "^2.8.4",
         "pretty-quick": "^3.1.3",
