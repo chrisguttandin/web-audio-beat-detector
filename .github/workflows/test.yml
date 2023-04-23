@@ -15,10 +15,10 @@ jobs:
         strategy:
             matrix:
                 include:
-                    - node-version: 16.x
+                    - node-version: 18.x
                       target: node
                       type: integration
-                node-version: [16.x]
+                node-version: [18.x]
                 target: [chrome, firefox, safari]
                 type: [integration]
             max-parallel: 3
