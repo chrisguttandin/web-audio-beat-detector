@@ -16,7 +16,7 @@ module.exports = (grunt) => {
             cmd: 'rimraf build/*'
         },
         'lint-config': {
-            cmd: `eslint --config config/eslint/config.json --ext .js ${fix ? '--fix ' : ''}--report-unused-disable-directives *.js config/`
+            cmd: 'npm run lint:config'
         },
         'lint-src': {
             cmd: 'tslint --config config/tslint/src.json --project src/tsconfig.json src/*.ts src/**/*.ts'
