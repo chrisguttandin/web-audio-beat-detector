@@ -88,6 +88,7 @@
         "url": "https://github.com/chrisguttandin/web-audio-beat-detector.git"
     },
     "scripts": {
+        "lint:config": "eslint --config config/eslint/config.json --ext .js --report-unused-disable-directives config/",
         "prepare": "husky install",
         "prepublishOnly": "grunt build",
         "test": "grunt lint && grunt test"
