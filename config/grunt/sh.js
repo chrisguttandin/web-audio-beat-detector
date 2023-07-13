@@ -1,6 +1,5 @@
 module.exports = (grunt) => {
     const continuous = grunt.option('continuous') === true;
-    const fix = grunt.option('fix') === true;
 
     return {
         'build-es2019': {
@@ -19,10 +18,10 @@ module.exports = (grunt) => {
             cmd: 'npm run lint:config'
         },
         'lint-src': {
-            cmd: 'tslint --config config/tslint/src.json --project src/tsconfig.json src/*.ts src/**/*.ts'
+            cmd: 'npm run lint:src'
         },
         'lint-test': {
-            cmd: `eslint --config config/eslint/test.json --ext .js ${fix ? '--fix ' : ''}--report-unused-disable-directives test/`
+            cmd: 'npm run lint:test'
         },
         'test-integration-browser': {
             cmd: `karma start config/karma/config-integration.js ${continuous ? '--concurrency Infinity' : '--single-run'}`
