@@ -88,12 +88,13 @@
         "url": "https://github.com/chrisguttandin/web-audio-beat-detector.git"
     },
     "scripts": {
+        "build": "rimraf build/* && webpack --config config/webpack/worker-es2019.js && tsc --project src/tsconfig.json && rollup --config config/rollup/bundle.mjs && babel ./build/es2019 --config-file ./config/babel/build.json --out-dir ./build/node",
         "lint": "npm run lint:config && npm run lint:src && npm run lint:test",
         "lint:config": "eslint --config config/eslint/config.json --ext .js --report-unused-disable-directives config/",
         "lint:src": "tslint --config config/tslint/src.json --project src/tsconfig.json src/*.ts src/**/*.ts",
         "lint:test": "eslint --config config/eslint/test.json --ext .js --report-unused-disable-directives test/",
         "prepare": "husky install",
-        "prepublishOnly": "grunt build",
+        "prepublishOnly": "npm run build",
         "test": "grunt lint && grunt test"
     },
     "types": "build/es2019/module.d.ts",
