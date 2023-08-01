@@ -62,6 +62,7 @@ export default new Promise((resolve, reject) => {
             const transpiledWorkerString = fs // eslint-disable-line node/no-sync
                 .readFileSync('/worker.js', 'utf8')
                 .replace(/\\/g, '\\\\')
+                .replace(/`/g, '\\`')
                 .replace(/\${/g, '\\${');
 
             resolve({
