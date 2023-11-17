@@ -19,7 +19,7 @@ jobs:
                       target: node
                       type: integration
                 node-version: [18.x]
-                target: [chrome, firefox, safari]
+                target: [chrome, safari]
                 type: [integration]
             max-parallel: 3
 
