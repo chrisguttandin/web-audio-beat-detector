@@ -60,6 +60,15 @@ guess(audioBuffer)
 
 `analyze()` and `guess()` do both support `offset` and `duration` as optional arguments. When specified these two values are used to select only a part of the given `AudioBuffer`. There usage is the same as described in the documentation of the [`AudioBufferSourceNode.start()`](https://webaudio.github.io/web-audio-api/#widl-AudioBufferSourceNode-start-void-double-when-double-offset-double-duration) method.
 
+By default the bpm are expected to be between 90 and 180 bpm. This can be changed by specifying the `tempoSettings`. These can be passed as the last argument to `analyze()` or `guess()`.
+
+```js
+// with an offset and duration
+analyze(audioBuffer, 1, 10, { maxTempo: 120, minTempo: 60 });
+// with no other arguments
+analyze(audioBuffer, { maxTempo: 120, minTempo: 60 });
+```
+
 ## Acknowledgement
 
 A more comprehensive implementation has been done by [José M. Pérez](https://jmperezperez.com). It
