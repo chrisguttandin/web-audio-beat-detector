@@ -58,7 +58,7 @@
         "load-grunt-config": "^4.0.1",
         "memfs": "^4.6.0",
         "mocha": "^10.2.0",
-        "prettier": "^3.2.2",
+        "prettier": "^3.2.4",
         "rimraf": "^5.0.5",
         "rollup": "^4.9.5",
         "sinon": "^17.0.1",
