@@ -1,11 +1,9 @@
+import { join, resolve as resolvePath } from 'path';
 import { readFile, readFileSync, readlink, stat } from 'fs';
 import babel from '@rollup/plugin-babel';
-import { fileURLToPath } from 'url';
 import { fs } from 'memfs';
-import { join } from 'path';
 import replace from '@rollup/plugin-replace';
 import webpack from 'webpack';
-// eslint-disable-next-line node/file-extensions-in-import
 import webpackConfig from '../webpack/worker-es5.mjs';
 
 const workerFile = readFileSync('src/worker/worker.ts', 'utf8');
@@ -15,6 +13,7 @@ if (result === null) {
     throw new Error('The worker file could not be parsed.');
 }
 
+const virtualPath = resolvePath(import.meta.dirname, '../../src/worker.js');
 const workerString = result.groups.workerString;
 
 // eslint-disable-next-line import/no-default-export
@@ -23,7 +22,7 @@ export default new Promise((resolve, reject) => {
 
     compiler.inputFileSystem = {
         readFile(path, ...args) {
-            if (path === fileURLToPath(new URL('../../src/worker.js', import.meta.url))) {
+            if (path === virtualPath) {
                 args.pop()(null, "import 'web-audio-beat-detector-worker';");
 
                 return;
@@ -32,14 +31,14 @@ export default new Promise((resolve, reject) => {
             return readFile(path, ...args);
         },
         readlink(path, callback) {
-            if (path === fileURLToPath(new URL('../../src/worker.js', import.meta.url))) {
-                return readlink(fileURLToPath(new URL(import.meta.url)), callback);
+            if (path === virtualPath) {
+                return readlink(import.meta.filename, callback);
             }
 
             return readlink(path, callback);
         },
         stat(path, ...args) {
-            if (path === fileURLToPath(new URL('../../src/worker.js', import.meta.url))) {
+            if (path === virtualPath) {
                 args.pop()(null, {
                     isFile() {
                         return true;
