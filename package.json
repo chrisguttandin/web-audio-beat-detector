@@ -54,7 +54,7 @@
         "karma-sinon-chai": "^2.0.2",
         "karma-webkit-launcher": "^2.6.0",
         "karma-webpack": "^5.0.1",
-        "lint-staged": "^15.2.5",
+        "lint-staged": "^15.2.7",
         "load-grunt-config": "^4.0.1",
         "memfs": "^4.9.2",
         "mocha": "^10.4.0",
