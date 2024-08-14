@@ -60,7 +60,7 @@
         "mocha": "^10.7.3",
         "prettier": "^3.3.3",
         "rimraf": "^5.0.7",
-        "rollup": "^4.18.1",
+        "rollup": "^4.20.0",
         "sinon": "^17.0.2",
         "sinon-chai": "^3.7.0",
         "standardized-audio-context": "^25.3.75",
