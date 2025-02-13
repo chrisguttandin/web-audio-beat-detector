@@ -56,7 +56,7 @@
         "karma-webpack": "^5.0.1",
         "lint-staged": "^15.4.3",
         "load-grunt-config": "^4.0.1",
-        "memfs": "^4.15.3",
+        "memfs": "^4.17.0",
         "mocha": "^10.8.2",
         "prettier": "^3.4.2",
         "rimraf": "^6.0.1",
