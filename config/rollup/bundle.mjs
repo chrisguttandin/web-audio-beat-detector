@@ -4,6 +4,7 @@ import babel from '@rollup/plugin-babel';
 import { fs } from 'memfs';
 import replace from '@rollup/plugin-replace';
 import webpack from 'webpack';
+// eslint-disable-next-line node/file-extension-in-import
 import webpackConfig from '../webpack/worker-es5.mjs';
 
 const workerFile = readFileSync('src/worker/worker.ts', 'utf8');
