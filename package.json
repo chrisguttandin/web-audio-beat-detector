@@ -95,9 +95,9 @@
         "lint:test": "eslint --config config/eslint/test.json --ext .js --report-unused-disable-directives test/",
         "prepare": "husky",
         "prepublishOnly": "npm run build",
-        "test": "npm run lint && grunt test",
-        "test:integration-browser": "karma start config/karma/config-integration.js --single-run",
-        "test:integration-node": "mocha --bail --parallel --recursive --require config/mocha/config-integration.js test/integration"
+        "test": "npm run lint && npm run build && npm run test:integration-browser && npm run test:integration-node",
+        "test:integration-browser": "if [ \"$TYPE\" = \"\" -o \"$TYPE\" = \"integration\" ] && [ \"$TARGET\" = \"\" -o \"$TARGET\" = \"chrome\" -o \"$TARGET\" = \"firefox\" -o \"$TARGET\" = \"safari\" ]; then karma start config/karma/config-integration.js --single-run; fi",
+        "test:integration-node": "if [ \"$TYPE\" = \"\" -o \"$TYPE\" = \"integration\" ] && [ \"$TARGET\" = \"\" -o \"$TARGET\" = \"node\" ]; then mocha --bail --parallel --recursive --require config/mocha/config-integration.js test/integration; fi"
     },
     "types": "build/es2019/module.d.ts",
     "version": "8.2.25"
