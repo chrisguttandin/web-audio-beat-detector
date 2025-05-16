@@ -96,5 +96,5 @@
         "test:integration-node": "if [ \"$TYPE\" = \"\" -o \"$TYPE\" = \"integration\" ] && [ \"$TARGET\" = \"\" -o \"$TARGET\" = \"node\" ]; then mocha --bail --parallel --recursive --require config/mocha/config-integration.js test/integration; fi"
     },
     "types": "build/es2019/module.d.ts",
-    "version": "8.2.27"
+    "version": "8.2.28"
 }
