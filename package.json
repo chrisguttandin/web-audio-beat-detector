@@ -22,7 +22,7 @@
         "@babel/runtime": "^7.27.6",
         "tslib": "^2.8.1",
         "web-audio-beat-detector-broker": "^5.0.9",
-        "web-audio-beat-detector-worker": "^6.0.8"
+        "web-audio-beat-detector-worker": "^6.0.9"
     },
     "description": "A beat detection utility which is using the Web Audio API.",
     "devDependencies": {
