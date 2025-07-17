@@ -54,7 +54,7 @@
         "lint-staged": "^16.1.2",
         "memfs": "^4.17.2",
         "mocha": "^11.7.1",
-        "prettier": "^3.5.3",
+        "prettier": "^3.6.2",
         "rimraf": "^6.0.1",
         "rollup": "^4.43.0",
         "sinon": "^17.0.2",
