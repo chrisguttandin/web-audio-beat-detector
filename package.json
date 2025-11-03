@@ -34,7 +34,7 @@
         "@babel/register": "^7.28.3",
         "@commitlint/cli": "^19.8.1",
         "@commitlint/config-angular": "^19.8.1",
-        "@rollup/plugin-babel": "^6.0.4",
+        "@rollup/plugin-babel": "^6.1.0",
         "@rollup/plugin-replace": "^6.0.2",
         "babel-loader": "^10.0.0",
         "chai": "^4.3.10",
