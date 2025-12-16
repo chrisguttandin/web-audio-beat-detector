@@ -45,7 +45,7 @@
         "husky": "^9.1.7",
         "lint-staged": "^16.2.7",
         "memfs": "^4.51.1",
-        "prettier": "^3.6.2",
+        "prettier": "^3.7.4",
         "rimraf": "^6.1.2",
         "rollup": "^4.53.3",
         "standardized-audio-context": "^25.3.77",
