@@ -47,7 +47,7 @@
         "memfs": "^4.56.9",
         "prettier": "^3.8.1",
         "rimraf": "^6.1.2",
-        "rollup": "^4.55.1",
+        "rollup": "^4.56.0",
         "standardized-audio-context": "^25.3.77",
         "terser-webpack-plugin": "^5.3.16",
         "tsconfig-holy-grail": "^15.0.3",
