@@ -44,7 +44,7 @@
         "eslint-config-holy-grail": "^61.0.7",
         "husky": "^9.1.7",
         "lint-staged": "^16.2.7",
-        "memfs": "^4.56.9",
+        "memfs": "^4.56.10",
         "prettier": "^3.8.1",
         "rimraf": "^6.1.2",
         "rollup": "^4.56.0",
