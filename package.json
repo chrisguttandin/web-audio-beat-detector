@@ -85,5 +85,5 @@
         "test:integration-node": "if [ \"$TYPE\" = \"\" -o \"$TYPE\" = \"integration\" ] && [ \"$TARGET\" = \"\" -o \"$TARGET\" = \"node\" ]; then npx vitest --browser.enabled false --config config/vitest/integration.ts; fi"
     },
     "types": "build/es2019/module.d.ts",
-    "version": "8.2.34"
+    "version": "8.2.35"
 }
