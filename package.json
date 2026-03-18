@@ -34,7 +34,7 @@
         "@babel/register": "^7.28.6",
         "@commitlint/cli": "^20.5.0",
         "@commitlint/config-angular": "^20.5.0",
-        "@rollup/plugin-babel": "^6.1.0",
+        "@rollup/plugin-babel": "^7.0.0",
         "@rollup/plugin-replace": "^6.0.3",
         "@vitest/browser-webdriverio": "^4.0.18",
         "babel-loader": "^10.0.0",
