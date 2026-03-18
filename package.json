@@ -37,7 +37,7 @@
         "@rollup/plugin-babel": "^7.0.0",
         "@rollup/plugin-replace": "^6.0.3",
         "@vitest/browser-webdriverio": "^4.0.18",
-        "babel-loader": "^10.0.0",
+        "babel-loader": "^10.1.1",
         "commitizen": "^4.3.1",
         "cz-conventional-changelog": "^3.3.0",
         "eslint": "^8.57.0",
