@@ -44,8 +44,6 @@ jobs:
               run: npm ci
 
             - env:
-                  SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-                  SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
                   TARGET: ${{ matrix.target }}
                   TYPE: ${{ matrix.type }}
               name: Run ${{ matrix.type }} tests
