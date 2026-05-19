@@ -33,7 +33,7 @@
         "@babel/preset-env": "^7.29.5",
         "@babel/register": "^7.29.3",
         "@commitlint/cli": "^21.0.1",
-        "@commitlint/config-angular": "^20.5.3",
+        "@commitlint/config-angular": "^21.0.1",
         "@rollup/plugin-babel": "^7.0.0",
         "@rollup/plugin-replace": "^6.0.3",
         "@vitest/browser-webdriverio": "^4.1.5",
