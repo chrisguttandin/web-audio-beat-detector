@@ -7,6 +7,7 @@ import webpack from 'webpack';
 // eslint-disable-next-line node/file-extension-in-import
 import webpackConfig from '../webpack/worker-es5.mjs';
 
+// eslint-disable-next-line node/no-sync
 const workerFile = readFileSync('src/worker/worker.ts', 'utf8');
 const result = /export\sconst\sworker\s=\s`(?<workerString>.*)`;/g.exec(workerFile);
 
