@@ -69,6 +69,7 @@
     "main": "build/es5/bundle.js",
     "module": "build/es2019/module.js",
     "name": "web-audio-beat-detector",
+    "packageManager": "npm@12",
     "repository": {
         "type": "git",
         "url": "https://github.com/chrisguttandin/web-audio-beat-detector.git"
